@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministerio de Jóvenes - Región 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mjAzul: '#172172', // Color único institucional de la IDP
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes floatGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-bg {
+            background: linear-gradient(-45deg, #172172, #0b113a, #1e2b9a, #040614);
+            background-size: 400% 400%;
+            animation: floatGradient 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen antialiased overflow-x-hidden">
+
+    <nav class="fixed top-0 left-0 right-0 bg-slate-950/90 backdrop-blur-md text-white z-50 border-b border-slate-900 animate__animated animate__fadeInDown">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-11 h-11 bg-mjAzul rounded-xl flex items-center justify-center border border-slate-800 shadow-md shrink-0 transition-transform duration-500 group-hover:rotate-12">
+                    <span class="text-white font-black text-xl tracking-tighter">MJ</span>
+                </div>
+                <div>
+                    <span class="font-extrabold tracking-tight text-sm md:text-base block group-hover:text-mjAzul transition-colors">Juventud Región 1</span>
+                    <span class="text-[10px] text-amber-500 block font-semibold tracking-wider uppercase">Plan Estratégico 2026</span>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#inicio" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Inicio</a>
+                <a href="#identidad" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Quiénes Somos</a>
+                <a href="#equipo" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Estructura</a>
+                <a href="#iglesia" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Iglesia Local</a>
+                <a href="#formacion" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Formación</a>
+                <a href="#registro" class="text-amber-400 hover:text-amber-300 transition-colors relative font-bold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-amber-400 after:transition-all">Censo Liderazgo</a>
+                <a href="#calendario" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Eventos 2026</a>
+            </div>
+            <a href="#calendario" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-red-600/20">
+                Ver Agenda
+            </a>
+        </div>
+    </nav>
+
+    <section id="inicio" class="relative animated-bg text-white py-32 px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between pt-40 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(23,33,114,0.3),transparent_60%)]"></div>
+        
+        <div class="max-w-3xl space-y-6 z-10 animate__animated animate__fadeInLeft">
+            <span class="inline-block bg-white/5 border border-amber-500/30 text-amber-500 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase animate__animated animate__pulse animate__infinite">
+                Plan Estratégico Operativo 2026
+            </span>
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none text-white">
+                Generación que Avanza
+            </h1>
+            <p class="text-base md:text-lg text-slate-300 font-normal max-w-xl leading-relaxed">
+                Nuestra hoja de ruta territorial desde <span class="text-amber-400 font-bold">Coclé hasta Bocas del Toro</span>. No llenamos el calendario por llenar; levantamos líderes con propósito, servicio real y orden organizativo.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                <a href="#registro" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-500/30 text-center text-sm">
+                    Acceso Censo Líderes
+                </a>
+                <a href="#calendario" class="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-red-600/30 text-center text-sm">
+                    Eventos de la Región
+                </a>
+            </div>
+        </div>
+        
+        <div class="mt-12 lg:mt-0 w-full lg:w-1/2 flex justify-center relative z-10 animate__animated animate__fadeInRight">
+            <div class="relative w-full max-w-md bg-slate-950/80 backdrop-blur-md rounded-2xl border border-slate-800 p-6 shadow-2xl flex flex-col justify-between transition-all duration-500 hover:border-mjAzul/50 hover:shadow-mjAzul/10">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center border border-slate-700 shadow-lg">
+                            <span class="text-white font-black text-xl tracking-tighter">R1</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-black text-sm md:text-base tracking-tight">Estadísticas de la Región</h4>
+                            <p class="text-[10px] text-emerald-400 font-medium flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Actualizado en vivo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80">
+                        <span id="counter-jovenes" data-target="342" class="block text-3xl font-black text-amber-400 font-mono tracking-tight">342</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mt-1">Jóvenes</span>
+                    </div>
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80">
+                        <span id="counter-iglesias" data-target="18" class="block text-3xl font-black text-white font-mono tracking-tight">18</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mt-1">Iglesias</span>
+                    </div>
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80">
+                        <span id="counter-lideres" data-target="24" class="block text-3xl font-black text-blue-400 font-mono tracking-tight">24</span>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mt-1">Líderes</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-800/60 text-[11px] text-slate-400 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium">Alcance Geográfico:</span>
+                        <span class="text-slate-300 font-semibold text-right">Coclé a Bocas del Toro</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium">Censo Administrativo:</span>
+                        <span id="connection-status" class="text-red-500 font-mono font-bold">Activo 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="identidad" class="py-24 px-6 max-w-7xl mx-auto scroll-mt-20 overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            <div class="space-y-4 lg:sticky lg:top-28" data-aos="fade-right" data-aos-duration="1000">
+                <h2 class="text-xs font-bold tracking-widest text-mjAzul uppercase">01 // Identidad</h2>
+                <h3 class="text-3xl font-black text-slate-900 tracking-tight leading-tight">¿Quiénes somos y hacia dónde vamos?</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Este documento no es para guardarlo en una gaveta; es nuestra hoja de ruta para este 2026. Queremos levantar una generación que avanza, comparta de Jesús, sirva a la comunidad y crezca unida.
+                </p>
+            </div>
+            <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-sm space-y-2 border-l-4 border-l-mjAzul transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-bold text-slate-900 text-base">Llevar el mensaje</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Que cada actividad física o digital tenga como centro invitar a otros a conocer a Cristo.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-sm space-y-2 border-l-4 border-l-mjAzul transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="font-bold text-slate-900 text-base">Crecer juntos</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Abrir Grupos de Crecimiento (GDC) en las casas para cuidar y recibir a los nuevos.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-sm space-y-2 border-l-4 border-l-mjAzul transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="font-bold text-slate-900 text-base">Firmeza espiritual</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Ayudar a los jóvenes a desarrollar una vida real de oración, lectura bíblica y santidad.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-sm space-y-2 border-l-4 border-l-mjAzul transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-aos="fade-up" data-aos-delay="400">
+                    <h4 class="font-bold text-slate-900 text-base">Servir de verdad</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Salir de las cuatro paredes y bendecir con ayuda social a las comunidades que más lo necesitan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-sm space-y-2 border-l-4 border-l-mjAzul transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-aos="fade-up" data-aos-delay="500">
+                    <h4 class="font-bold text-slate-900 text-base">Cero divisiones</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Que las iglesias desde Coclé hasta Bocas del Toro trabajen como un solo equipo, apoyándose mutuamente.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-sm space-y-2 border-l-4 border-l-mjAzul transition-all duration-300 hover:-translate-y-1 hover:shadow-md" data-aos="fade-up" data-aos-delay="600">
+                    <h4 class="font-bold text-slate-900 text-base">Capacitar nuevos líderes</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">Dar las herramientas necesarias a los próximos relevos ministeriales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipo" class="py-24 bg-slate-900 text-white px-6 scroll-mt-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-3" data-aos="fade-down" data-aos-duration="1000">
+                <h2 class="text-xs font-bold tracking-widest text-blue-400 uppercase">02 // Organización Regional</h2>
+                <h3 class="text-3xl md:text-4xl font-black tracking-tight">¿Cómo nos dividimos el trabajo?</h3>
+                <p class="text-slate-400 text-sm md:text-base">El trabajo en cada iglesia local se estructurará de forma independiente en áreas especializadas para evitar la sobrecarga operativa.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-mjAzul hover:shadow-xl hover:shadow-mjAzul/10 group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="space-y-3">
+                        <span class="text-blue-400 font-mono text-xs font-bold inline-block transition-transform group-hover:scale-105">[ Área 01 ]</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Evangelismo y Consolidación</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Organiza las salidas a la comunidad, las campañas y se asegura de que cada joven nuevo reciba seguimiento.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/60 text-[11px] text-slate-400">
+                        <strong class="text-blue-400 block mb-0.5">Éxito:</strong> Jóvenes nuevos que se integran permanentemente.
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-mjAzul hover:shadow-xl hover:shadow-mjAzul/10 group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="space-y-3">
+                        <span class="text-blue-400 font-mono text-xs font-bold inline-block transition-transform group-hover:scale-105">[ Área 02 ]</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Equipo Administrativo</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Se encarga de los papeles: el censo de los jóvenes, el control de asistencia, las cartas oficiales y las actas virtuales.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/60 text-[11px] text-slate-400">
+                        <strong class="text-blue-400 block mb-0.5">Éxito:</strong> Información ordenada, censada y al día.
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-mjAzul hover:shadow-xl hover:shadow-mjAzul/10 group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="space-y-3">
+                        <span class="text-blue-400 font-mono text-xs font-bold inline-block transition-transform group-hover:scale-105">[ Área 03 ]</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Equipo Financiero</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Cuida las finanzas, arma los presupuestos para las actividades, lleva el control de lo que entra y sale de forma independiente.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/60 text-[11px] text-slate-400">
+                        <strong class="text-blue-400 block mb-0.5">Éxito:</strong> Cuentas transparentes y presupuestos cumplidos.
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-mjAzul hover:shadow-xl hover:shadow-mjAzul/10 group" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="space-y-3">
+                        <span class="text-blue-400 font-mono text-xs font-bold inline-block transition-transform group-hover:scale-105">[ Área 04 ]</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Logística y Operaciones</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">El equipo de la acción: coordinar los viajes en bus, la comida, el sonido, las compras de materiales y el orden operativo externo.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/60 text-[11px] text-slate-400">
+                        <strong class="text-blue-400 block mb-0.5">Éxito:</strong> Eventos a tiempo y recursos bien optimizados.
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-mjAzul hover:shadow-xl hover:shadow-mjAzul/10 group" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="space-y-3">
+                        <span class="text-blue-400 font-mono text-xs font-bold inline-block transition-transform group-hover:scale-105">[ Área 05 ]</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Multimedia y Redes</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Crea los flyers, toma las fotos, graba los videos y maneja las redes sociales para convocar y evangelizar.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/60 text-[11px] text-slate-400">
+                        <strong class="text-blue-400 block mb-0.5">Éxito:</strong> Buen alcance y convocatorias atractivas digitales.
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-mjAzul hover:shadow-xl hover:shadow-mjAzul/10 group" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="space-y-3">
+                        <span class="text-blue-400 font-mono text-xs font-bold inline-block transition-transform group-hover:scale-105">[ Área 06 ]</span>
+                        <h4 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">Desarrollo Espiritual</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">El motor del grupo: coordina los ayunos, las cadenas de oración, las visitaciones y el apoyo emocional.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/60 text-[11px] text-slate-400">
+                        <strong class="text-blue-400 block mb-0.5">Éxito:</strong> Base juvenil activa en oración y servicio diario.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iglesia" class="py-24 px-6 max-w-5xl mx-auto scroll-mt-20 overflow-hidden">
+        <div class="space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-2" data-aos="fade-up">
+                <h2 class="text-xs font-bold tracking-widest text-mjAzul uppercase">03 // Dinámica Interna</h2>
+                <h3 class="text-3xl font-black text-slate-900 tracking-tight">Así trabajamos en la Iglesia Local</h3>
+                <p class="text-slate-600 text-sm">Liderar con intención significa no adivinar lo que los jóvenes necesitan. Tres pasos imperativos:</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white border border-slate-200 p-5 rounded-xl flex items-start gap-4 transition-all duration-300 hover:border-mjAzul hover:shadow-sm" data-aos="fade-left" data-aos-delay="100">
+                    <div class="w-8 h-8 bg-mjAzul text-white rounded-lg flex items-center justify-center font-bold text-sm shrink-0">A</div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">Escuchar antes de planificar (El Diagnóstico)</h4>
+                        <p class="text-slate-600 text-xs mt-1">Antes de armar tu calendario, haz una encuesta rápida y anónima sobre problemas reales (ansiedad, dudas, presiones).</p>
+                    </div>
+                </div>
+                <div class="bg-white border border-slate-200 p-5 rounded-xl flex items-start gap-4 transition-all duration-300 hover:border-mjAzul hover:shadow-sm" data-aos="fade-left" data-aos-delay="200">
+                    <div class="w-8 h-8 bg-mjAzul text-white rounded-lg flex items-center justify-center font-bold text-sm shrink-0">B</div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">Saber a quiénes pastoreamos (El Censo)</h4>
+                        <p class="text-slate-600 text-xs mt-1">Lleva una lista real con nombres, teléfonos, cumpleaños y motivos de oración. No puedes cuidar a ovejas que no tienes plenamente contadas.</p>
+                    </div>
+                </div>
+                <div class="bg-white border border-slate-200 p-5 rounded-xl flex items-start gap-4 transition-all duration-300 hover:border-mjAzul hover:shadow-sm" data-aos="fade-left" data-aos-delay="300">
+                    <div class="w-8 h-8 bg-mjAzul text-white rounded-lg flex items-center justify-center font-bold text-sm shrink-0">C</div>
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm">Trabajar alineados con el Pastor</h4>
+                        <p class="text-slate-600 text-xs mt-1">El ministerio juvenil no funciona de forma aislada. Presenta el plan, escucha sus consejos estratégicos y camina bajo cobertura pastoral.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 text-white" data-aos="flip-up" data-aos-duration="800">
+                <div class="space-y-2">
+                    <span class="text-[10px] bg-mjAzul text-white px-2 py-0.5 rounded font-bold uppercase">Acción Regular</span>
+                    <h4 class="font-black text-white text-base">El Programa</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">Es la actividad regular y continua que hacemos comúnmente adentro de la iglesia local, como los servicios públicos o reuniones fijas de los sábados.</p>
+                </div>
+                <div class="space-y-2 md:border-l md:border-slate-800 md:pl-6">
+                    <span class="text-[10px] bg-mjAzul text-white px-2 py-0.5 rounded font-bold uppercase">Intervención Social</span>
+                    <h4 class="font-black text-white text-base">El Proyecto</h4>
+                    <p class="text-slate-400 text-xs leading-relaxed">Diseñado para salir de las cuatro paredes y resolver una necesidad comunitaria real externa. Todo proyecto requiere previa revisión financiera.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="formacion" class="py-24 bg-slate-100 border-t border-b border-slate-200 px-6 scroll-mt-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto space-y-16">
+            <div class="text-center max-w-2xl mx-auto space-y-2" data-aos="fade-down">
+                <h2 class="text-xs font-bold tracking-widest text-mjAzul uppercase">04 // Capacitación</h2>
+                <h3 class="text-3xl font-black text-slate-900 tracking-tight">Ruta de Formación para Líderes</h3>
+                <p class="text-slate-600 text-sm">Entrenamiento integral estructurado en cuatro bloques formativos mediante talleres e instancias virtuales/presenciales.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 text-slate-100 font-black text-6xl absolute -top-4 -right-4 select-none group-hover:text-mjAzul/5 transition-colors">1</div>
+                    <h4 class="font-bold text-mjAzul text-base relative z-10 mb-2">Etapa 1: Espiritual</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed relative z-10">Identidad en Cristo, hábitos diarios de devocional, el valor práctico del ayuno y el cuidado del testimonio personal.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 text-slate-100 font-black text-6xl absolute -top-4 -right-4 select-none group-hover:text-mjAzul/5 transition-colors">2</div>
+                    <h4 class="font-bold text-mjAzul text-base relative z-10 mb-2">Etapa 2: Evangelismo</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed relative z-10">Herramientas para compartir la fe de forma natural, coordinación metodológica de un GDC y seguimiento a nuevos creyentes.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 text-slate-100 font-black text-6xl absolute -top-4 -right-4 select-none group-hover:text-mjAzul/5 transition-colors">3</div>
+                    <h4 class="font-bold text-mjAzul text-base relative z-10 mb-2">Etapa 3: Liderazgo</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed relative z-10">Trabajo en equipo de alto desempeño, diseño de programas de impacto, resolución de conflictos y elaboración de reportes.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-slate-200/60 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 text-slate-100 font-black text-6xl absolute -top-4 -right-4 select-none group-hover:text-mjAzul/5 transition-colors">4</div>
+                    <h4 class="font-bold text-mjAzul text-base relative z-10 mb-2">Etapa 4: Expansión</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed relative z-10">Visión de misiones transculturales, apoyo logístico a la apertura de nuevas congregaciones y proyectos comunitarios regionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registro" class="py-24 bg-amber-50/60 border-t border-b border-amber-200/40 px-6 scroll-mt-20 overflow-hidden">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 space-y-4" data-aos="fade-right">
+                <h2 class="text-xs font-bold tracking-widest text-amber-600 uppercase">MÓDULO PRIVADO // Censo 2026</h2>
+                <h3 class="text-3xl font-black text-slate-900 tracking-tight leading-tight">Acceso Exclusivo para Líderes</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Para proteger los datos de nuestra pastoral juvenil regional, esta sesión requiere validación de credenciales. Una vez accedas, podrás ingresar nuevos miembros y ver las métricas reflejadas globalmente en tiempo real.
+                </p>
+                <div class="bg-slate-900 text-slate-400 p-4 rounded-xl text-[11px] space-y-1 border border-slate-800">
+                    <span class="text-amber-400 font-bold block">🔒 Datos Encriptados:</span>
+                    Cumplimos con las directrices administrativas para el manejo seguro de información eclesial interna.
+                </div>
+            </div>
+
+            <div class="lg:col-span-7" data-aos="fade-left">
+                
+                <div id="box-login" class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-md space-y-6">
+                    <div class="text-center space-y-1">
+                        <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-full flex items-center justify-center mx-auto text-xl">🔒</div>
+                        <h4 class="font-black text-slate-900 text-lg">Iniciar Sesión de Liderazgo</h4>
+                        <p class="text-slate-400 text-xs">Digita tus accesos autorizados para desbloquear la base de datos.</p>
+                    </div>
+                    
+                    <form id="form-login" class="space-y-4">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase text-slate-500 tracking-wider">Usuario Regional</label>
+                            <input type="text" id="login-user" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all" placeholder="Ej. lider.cocle">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold uppercase text-slate-500 tracking-wider">Contraseña de Seguridad</label>
+                            <input type="password" id="login-pass" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all" placeholder="••••••••">
+                        </div>
+                        <button type="submit" id="btn-login-submit" class="w-full bg-slate-950 hover:bg-mjAzul text-white font-bold py-3 rounded-xl transition-all duration-300 text-xs tracking-wider uppercase">
+                            Verificar Credenciales
+                        </button>
+                    </form>
+                    <p id="login-error" class="text-center text-xs text-red-600 font-bold hidden">❌ Usuario o Contraseña inválidos. Inténtalo de nuevo.</p>
+                </div>
+
+                <div id="box-registro" class="bg-white p-6 md:p-8 rounded-2xl border border-emerald-200 shadow-xl space-y-6 hidden">
+                    <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                        <div>
+                            <h4 class="font-black text-slate-900 text-base">Formulario de Ingreso Autorizado</h4>
+                            <p class="text-[11px] text-emerald-600 font-medium">Conexión Segura Establecida con la Región 1</p>
+                        </div>
+                        <button onclick="logout()" class="text-[10px] font-bold bg-slate-100 hover:bg-red-50 hover:text-red-600 px-3 py-1.5 rounded-lg transition-colors text-slate-500">
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                    
+                    <form id="form-registro" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Nombre Completo</label>
+                                <input type="text" id="reg-nombre" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all" placeholder="Ej. Juan Pérez">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Iglesia Local</label>
+                                <select id="reg-iglesia" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all">
+                                    <option value="" disabled selected>Selecciona tu iglesia</option>
+                                    <option value="Coclé Central">IDP Coclé Central</option>
+                                    <option value="Penonomé">IDP Penonomé</option>
+                                    <option value="Santiago">IDP Santiago</option>
+                                    <option value="Chitré">IDP Chitré</option>
+                                    <option value="Bocas del Toro">IDP Bocas del Toro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1">
+                                <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Teléfono / WhatsApp</label>
+                                <input type="tel" id="reg-telefono" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all" placeholder="Ej. 6600-0000">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Área de Interés / Servicio</label>
+                                <select id="reg-area" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all">
+                                    <option value="" disabled selected>Selecciona un área</option>
+                                    <option value="Evangelismo">Evangelismo y Consolidación</option>
+                                    <option value="Multimedia">Multimedia y Redes</option>
+                                    <option value="Logística">Logística y Operaciones</option>
+                                    <option value="Espiritual">Desarrollo Espiritual</option>
+                                    <option value="Ninguno">Solo Asistir por Ahora</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="btn-registro-submit" class="w-full bg-emerald-600 hover:bg-slate-900 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-md text-sm">
+                            Registrar e Inyectar a Base Global
+                        </button>
+                    </form>
+
+                    <div class="pt-4 border-t border-slate-100 space-y-2">
+                        <span class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">Historial Reciente Emitido:</span>
+                        <div id="live-feed" class="space-y-2 max-h-32 overflow-y-auto pr-1">
+                            <!-- Los registros ingresados aparecerán aquí dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="calendario" class="py-24 px-6 max-w-5xl mx-auto scroll-mt-20 overflow-hidden">
+        <div class="space-y-16">
+            <div class="text-center max-w-2xl mx-auto space-y-2" data-aos="fade-up">
+                <h2 class="text-xs font-bold tracking-widest text-mjAzul uppercase">05 // Agenda Oficial</h2>
+                <h3 class="text-3xl font-black text-slate-900 tracking-tight">Calendario de Eventos Regionales 2026</h3>
+                <p class="text-slate-600 text-sm">Cronograma unificado de concentraciones geográficas y redes de confraternidad en línea.</p>
+            </div>
+
+            <div class="space-y-6">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200 pb-2">Convocatorias Presenciales</h4>
+                
+                <div class="bg-white border border-slate-200 rounded-xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm border-l-4 border-l-mjAzul transition-all duration-300 hover:shadow-md" data-aos="fade-left">
+                    <div class="space-y-1">
+                        <span class="inline-block text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-mjAzul uppercase">Magno Evento</span>
+                        <h3 class="font-bold text-slate-950 text-base">Convención Regional 1</h3>
+                        <p class="text-slate-500 text-xs">Instancia clave para aprender, capacitarnos como líderes y ser renovados unificadamente.</p>
+                    </div>
+                    <div class="text-sm font-bold text-mjAzul bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-lg text-center md:text-right min-w-[160px]">
+                        19 al 21 de Junio, 2026
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm border-l-4 border-l-mjAzul transition-all duration-300 hover:shadow-md" data-aos="fade-left" data-aos-delay="100">
+                    <div class="space-y-1">
+                        <span class="inline-block text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-mjAzul uppercase">10:00 a.m.</span>
+                        <h3 class="font-bold text-slate-950 text-base">Convocatoria Juvenil Regional</h3>
+                        <p class="text-slate-500 text-xs">Gran día para unirnos como región, tener dinámicas, testimonios y despliegue de evangelismo físico.</p>
+                    </div>
+                    <div class="text-sm font-bold text-mjAzul bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-lg text-center md:text-right min-w-[160px]">
+                        22 de Agosto, 2026
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm border-l-4 border-l-mjAzul transition-all duration-300 hover:shadow-md" data-aos="fade-left" data-aos-delay="200">
+                    <div class="space-y-1">
+                        <span class="inline-block text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-mjAzul uppercase">Los Santos</span>
+                        <h3 class="font-bold text-slate-950 text-base">Convocatoria Regional en Los Santos</h3>
+                        <p class="text-slate-500 text-xs">Talleres especializados, noches de vigilia unificada y jornadas de evangelización en las calles.</p>
+                    </div>
+                    <div class="text-sm font-bold text-mjAzul bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-lg text-center md:text-right min-w-[160px]">
+                        18 y 19 de Septiembre
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm border-l-4 border-l-mjAzul transition-all duration-300 hover:shadow-md" data-aos="fade-left" data-aos-delay="300">
+                    <div class="space-y-1">
+                        <span class="inline-block text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 text-mjAzul uppercase">Misión Social</span>
+                        <h3 class="font-bold text-slate-950 text-base">Misión Social en Bocas del Toro</h3>
+                        <p class="text-slate-500 text-xs">Distribución de alimentos, actividades infantiles, oración por familias y campañas evangelísticas.</p>
+                    </div>
+                    <div class="text-sm font-bold text-mjAzul bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-lg text-center md:text-right min-w-[160px]">
+                        09 y 10 de Octubre
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6 pt-6">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200 pb-2">Conexiones Virtuales (Confraternidad Digital)</h4>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm space-y-2 border-t-4 border-t-mjAzul transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-bold bg-blue-50 text-mjAzul px-2 py-0.5 rounded">07:30 p.m.</span>
+                            <span class="text-xs font-mono font-bold text-slate-700">14 de Junio</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-sm">Sesión Especial Separada</h5>
+                        <p class="text-slate-500 text-xs leading-relaxed">Damas se reúnen con la líder Maybelis; caballeros en simultáneo. Tema: "Cristo, identidad y propósito".</p>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm space-y-2 border-t-4 border-t-mjAzul transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-bold bg-blue-50 text-mjAzul px-2 py-0.5 rounded">Interactiva</span>
+                            <span class="text-xs font-mono font-bold text-slate-700">Julio (05 y 18)</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-sm">Sesiones de Integración</h5>
+                        <p class="text-slate-500 text-xs leading-relaxed">Dinámicas virtuales, juegos en línea e invitados especiales. (Caballeros: 5 de Julio / Damas: 18 de Julio).</p>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm space-y-2 border-t-4 border-t-mjAzul transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-bold bg-blue-50 text-mjAzul px-2 py-0.5 rounded">Intercesión</span>
+                            <span class="text-xs font-mono font-bold text-slate-700">12 y 13 Sep.</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-sm">Conexión de Intercesión</h5>
+                        <p class="text-slate-500 text-xs leading-relaxed">Clamor unificado digital por la convocatoria de Los Santos y equipamiento práctico de evangelismo.</p>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-sm space-y-2 border-t-4 border-t-mjAzul transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[10px] font-bold bg-blue-50 text-mjAzul px-2 py-0.5 rounded">Cierre de Ciclo</span>
+                            <span class="text-xs font-mono font-bold text-slate-700">03 de Octubre</span>
+                        </div>
+                        <h5 class="font-bold text-slate-900 text-sm">Cierre del Ciclo Digital</h5>
+                        <p class="text-slate-500 text-xs leading-relaxed">Última sesión sincrónica en línea del año administrativo bajo el lema central: "El poder de la Palabra en la vida de un joven".</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-mjAzul text-slate-100 rounded-2xl p-6 md:p-8 space-y-6 shadow-xl relative overflow-hidden" data-aos="zoom-in-up" data-aos-duration="1000">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.05),transparent_45%)]"></div>
+                <h4 class="text-white font-bold text-base border-b border-white/10 pb-2 relative z-10">Directrices Operativas de Éxito</h4>
+                <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs leading-relaxed relative z-10">
+                    <li class="space-y-1">
+                        <strong class="text-white block font-bold text-sm">Reuniones Mensuales</strong>
+                        Revisión mensual obligatoria de finanzas de forma separada, listados censales de administración y avance real de los grupos en las casas.
+                    </li>
+                    <li class="space-y-1">
+                        <strong class="text-white block font-bold text-sm">Soporte Intereclesial</strong>
+                        Las iglesias fuertes en áreas específicas (multimedia o música) deben asesorar activamente a congregaciones con menos recursos.
+                    </li>
+                    <li class="space-y-1">
+                        <strong class="text-white block font-bold text-sm">Previsión de Fondos</strong>
+                        La coordinación de logística y el equipo financiero deben gestionar presupuestos de transporte con mínimo 30 días de anticipación.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-auto bg-slate-950 text-slate-400 text-xs px-6 border-t border-slate-900 text-center py-12 space-y-3">
+        <p class="max-w-md mx-auto text-slate-500 text-[11px] leading-relaxed">
+            "Tenemos un territorio enorme por bendecir. Este plan es nuestra herramienta para trabajar ordenados, con una meta clara y con el fuego del Espíritu Santo."
+        </p>
+        <div class="h-px bg-slate-900 max-w-xs mx-auto"></div>
+        <div class="flex justify-center items-center gap-2 text-slate-500 text-[11px]">
+            <div class="w-5 h-5 bg-blue-600 rounded flex items-center justify-center filter grayscale opacity-40">
+                <span class="text-white font-black text-[9px] tracking-tighter">MJ</span>
+            </div>
+            <span>© 2026 Secretaría Regional de la Juventud - Región 1 (Coclé a Bocas del Toro).</span>
+        </div>
+    </footer>
+
+    <!-- Contenedor flotante para notificaciones (Toast) de diseño moderno -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 max-w-md pointer-events-none"></div>
+
+    <!-- Script de la biblioteca AOS para animaciones al hacer scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // --- CONFIGURACIÓN GENERAL ---
+        // ¡REEMPLAZA ESTE TEXTO por tu enlace real largo de ejecución de Web App que termine en /exec!
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzRyFJUJuKRN_3oRv31oiyZLGpki6C_dVuRLr4PtVDBbyuqoBetYe4KISAEmDIIKYdz/exec";
+
+        // Credenciales de respaldo local para simulación fuera de línea o de prueba rápida
+        const CREDENCIALES_LOCALES = {
+            "admin.general": "IDP*Reg1*2026",
+            "lider.cocle": "Cocle#MJSector1",
+            "lider.veraguas": "Ver@guas#MJ26",
+            "lider.herrera": "Herrer@#IDP2026",
+            "lider.lossantos": "San+os#MJ1921",
+            "lider.bocas": "Boc@s*DelToro1"
+        };
+
+        // Variables globales temporales para mantener la sesión activa
+        let usuarioAutorizado = sessionStorage.getItem("usuarioAutorizado") || "";
+        let passwordAutorizado = sessionStorage.getItem("passwordAutorizado") || "";
+        let dbOffline = false;
+
+        // ==========================================
+        // SISTEMA DE NOTIFICACIONES (TOAST)
+        // ==========================================
+        function showToast(message, type = "success") {
+            const container = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl border shadow-lg transition-all duration-500 transform translate-x-20 opacity-0 min-w-[280px]`;
+            
+            let bgClass = "bg-white text-slate-800 border-slate-200";
+            let icon = "🔔";
+
+            if (type === "success") {
+                bgClass = "bg-emerald-950/90 text-emerald-300 border-emerald-800/50 backdrop-blur-md";
+                icon = "✅";
+            } else if (type === "error") {
+                bgClass = "bg-red-950/90 text-red-300 border-red-800/50 backdrop-blur-md";
+                icon = "❌";
+            } else if (type === "warning") {
+                bgClass = "bg-amber-950/90 text-amber-300 border-amber-800/50 backdrop-blur-md";
+                icon = "⚠️";
+            }
+
+            toast.className += ` ${bgClass}`;
+            toast.innerHTML = `<span class="text-base">${icon}</span><span class="text-xs font-bold font-sans">${message}</span>`;
+            container.appendChild(toast);
+
+            // Forzar reflow para animación de entrada
+            setTimeout(() => {
+                toast.classList.remove("translate-x-20", "opacity-0");
+            }, 10);
+
+            // Eliminar elemento después de unos segundos
+            setTimeout(() => {
+                toast.classList.add("translate-x-20", "opacity-0");
+                setTimeout(() => {
+                    toast.remove();
+                }, 500);
+            }, 4000);
+        }
+
+        // ==========================================
+        // ANIMACIÓN DE CONTADORES
+        // ==========================================
+        function animateCounter(id, targetValue) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            let start = 0;
+            const duration = 1500;
+            const startTime = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = progress * (2 - progress); // Ease out quad
+                const current = Math.floor(ease * targetValue);
+                el.textContent = current;
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    el.textContent = targetValue;
+                }
+            }
+            requestAnimationFrame(update);
+        }
+
+        // Inicializador del observador para disparar animación al entrar en pantalla
+        function initCounterAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const jTarget = parseInt(document.getElementById("counter-jovenes").getAttribute("data-target") || "342");
+                        const iTarget = parseInt(document.getElementById("counter-iglesias").getAttribute("data-target") || "18");
+                        const lTarget = parseInt(document.getElementById("counter-lideres").getAttribute("data-target") || "24");
+                        
+                        animateCounter("counter-jovenes", jTarget);
+                        animateCounter("counter-iglesias", iTarget);
+                        animateCounter("counter-lideres", lTarget);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const statsContainer = document.getElementById("counter-jovenes")?.parentElement?.parentElement;
+            if (statsContainer) {
+                observer.observe(statsContainer);
+            } else {
+                animateCounter("counter-jovenes", 342);
+                animateCounter("counter-iglesias", 18);
+                animateCounter("counter-lideres", 24);
+            }
+        }
+
+        // ==========================================
+        // CARGA Y CONFIGURACIÓN DE DATOS (LOCAL STORAGE)
+        // ==========================================
+        const MOCK_REGISTROS_CLAVE = "mj_registros_local_v1";
+        const MOCK_STATS_CLAVE = "mj_stats_local_v1";
+
+        const MOCK_REGISTROS_INICIALES = [
+            { fecha: new Date(Date.now() - 1000 * 60 * 60).toISOString(), nombre: "Carlos Torres", iglesia: "Penonomé", telefono: "6622-1133", area: "Multimedia", registrador: "lider.penonome" },
+            { fecha: new Date(Date.now() - 1000 * 60 * 180).toISOString(), nombre: "Maybelis Castillo", iglesia: "Coclé Central", telefono: "6544-9988", area: "Espiritual", registrador: "lider.cocle" },
+            { fecha: new Date(Date.now() - 1000 * 60 * 300).toISOString(), nombre: "David Rodríguez", iglesia: "Santiago", telefono: "6711-2244", area: "Evangelismo", registrador: "admin.general" },
+            { fecha: new Date(Date.now() - 1000 * 60 * 450).toISOString(), nombre: "José Pinto", iglesia: "Bocas del Toro", telefono: "6900-5511", area: "Logística", registrador: "lider.bocas" }
+        ];
+
+        function obtenerDatosLocales() {
+            let registros = localStorage.getItem(MOCK_REGISTROS_CLAVE);
+            let stats = localStorage.getItem(MOCK_STATS_CLAVE);
+
+            if (!registros) {
+                localStorage.setItem(MOCK_REGISTROS_CLAVE, JSON.stringify(MOCK_REGISTROS_INICIALES));
+                registros = JSON.stringify(MOCK_REGISTROS_INICIALES);
+            }
+            if (!stats) {
+                const statsIniciales = { jovenes: 342, iglesias: 18, lideres: 24 };
+                localStorage.setItem(MOCK_STATS_CLAVE, JSON.stringify(statsIniciales));
+                stats = JSON.stringify(statsIniciales);
+            }
+
+            return {
+                registros: JSON.parse(registros),
+                stats: JSON.parse(stats)
+            };
+        }
+
+        function guardarRegistroLocal(nuevoRegistro) {
+            const datos = obtenerDatosLocales();
+            datos.registros.push(nuevoRegistro);
+            
+            // Actualizar contadores locales
+            datos.stats.jovenes += 1;
+            
+            // Verificar iglesias únicas
+            const iglesias = new Set(datos.registros.map(r => r.iglesia));
+            iglesias.add("Coclé Central"); iglesias.add("Penonomé"); iglesias.add("Santiago"); iglesias.add("Chitré"); iglesias.add("Bocas del Toro");
+            datos.stats.iglesias = iglesias.size;
+
+            // Verificar líderes únicos
+            const lideres = new Set(datos.registros.map(r => r.registrador));
+            lideres.add("admin.general"); lideres.add("lider.cocle");
+            datos.stats.lideres = lideres.size;
+
+            localStorage.setItem(MOCK_REGISTROS_CLAVE, JSON.stringify(datos.registros));
+            localStorage.setItem(MOCK_STATS_CLAVE, JSON.stringify(datos.stats));
+
+            return datos;
+        }
+
+        // ==========================================
+        // RENDERIZADO DEL FEED DE HISTORIAL
+        // ==========================================
+        function renderLiveFeed(registros) {
+            const feed = document.getElementById("live-feed");
+            if (!feed) return;
+            feed.innerHTML = "";
+
+            if (!registros || registros.length === 0) {
+                feed.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-2">No hay registros recientes.</p>`;
+                return;
+            }
+
+            // Invertir para mostrar los más nuevos arriba
+            const ordenados = [...registros].reverse().slice(0, 10);
+
+            ordenados.forEach(reg => {
+                const item = document.createElement("div");
+                item.className = "bg-slate-50 border border-slate-100 p-2.5 rounded-xl flex items-center justify-between text-[11px] hover:border-slate-200 transition-all";
+                
+                // Color según la iglesia
+                let badgeBg = "bg-slate-100 text-slate-600";
+                if (reg.iglesia.includes("Coclé")) badgeBg = "bg-blue-50 text-blue-700 border border-blue-100";
+                else if (reg.iglesia.includes("Penonomé")) badgeBg = "bg-purple-50 text-purple-700 border border-purple-100";
+                else if (reg.iglesia.includes("Santiago")) badgeBg = "bg-emerald-50 text-emerald-700 border border-emerald-100";
+                else if (reg.iglesia.includes("Chitré")) badgeBg = "bg-orange-50 text-orange-700 border border-orange-100";
+                else if (reg.iglesia.includes("Bocas")) badgeBg = "bg-amber-50 text-amber-700 border border-amber-100";
+
+                const dateStr = reg.fecha ? new Date(reg.fecha).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "";
+
+                item.innerHTML = `
+                    <div class="space-y-0.5">
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-bold text-slate-900">${reg.nombre}</span>
+                            <span class="text-[9px] px-1.5 py-0.5 rounded-full font-bold ${badgeBg}">${reg.iglesia}</span>
+                        </div>
+                        <p class="text-slate-500">Servicio: <strong class="text-slate-700">${reg.area}</strong> • Ref: ${reg.telefono}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[9px] font-mono text-slate-400 block">${dateStr}</span>
+                        <span class="text-[9px] text-slate-500 font-semibold">Por: ${reg.registrador}</span>
+                    </div>
+                `;
+                feed.appendChild(item);
+            });
+        }
+
+        // ==========================================
+        // ACTUALIZACIÓN DE CONTADORES EN LA UI
+        // ==========================================
+        function actualizarCountersUI(stats) {
+            const jCounter = document.getElementById("counter-jovenes");
+            const iCounter = document.getElementById("counter-iglesias");
+            const lCounter = document.getElementById("counter-lideres");
+
+            if (jCounter) jCounter.setAttribute("data-target", stats.jovenes);
+            if (iCounter) iCounter.setAttribute("data-target", stats.iglesias);
+            if (lCounter) lCounter.setAttribute("data-target", stats.lideres);
+
+            if (jCounter) jCounter.textContent = stats.jovenes;
+            if (iCounter) iCounter.textContent = stats.iglesias;
+            if (lCounter) lCounter.textContent = stats.lideres;
+        }
+
+        // Sincroniza desde el Sheets o el LocalStorage al cargar
+        function cargarDatosIniciales() {
+            if (WEB_APP_URL.includes("https://script.google.com")) {
+                // Hacer petición GET para refrescar datos iniciales
+                fetch(WEB_APP_URL, {
+                    method: "GET",
+                    mode: "cors"
+                })
+                .then(res => res.json())
+                .then(resData => {
+                    if (resData.status === "success" || resData.stats) {
+                        actualizarCountersUI(resData.stats);
+                        renderLiveFeed(resData.recientes);
+                        
+                        // Guardar copia local por si acaso
+                        localStorage.setItem(MOCK_REGISTROS_CLAVE, JSON.stringify(resData.recientes));
+                        localStorage.setItem(MOCK_STATS_CLAVE, JSON.stringify(resData.stats));
+                        
+                        document.getElementById("connection-status").textContent = "En Línea (Sheets)";
+                        document.getElementById("connection-status").className = "text-emerald-500 font-mono font-bold";
+                        dbOffline = false;
+                    } else {
+                        throw new Error("Respuesta inválida del servidor");
+                    }
+                })
+                .catch(err => {
+                    console.log("No se pudo conectar a Google Sheets. Usando base de datos local de respaldo.", err);
+                    conmutarAModoLocal();
+                });
+            } else {
+                conmutarAModoLocal();
+            }
+        }
+
+        function conmutarAModoLocal() {
+            dbOffline = true;
+            document.getElementById("connection-status").textContent = "Offline (Local)";
+            document.getElementById("connection-status").className = "text-amber-500 font-mono font-bold";
+            
+            const datosLocales = obtenerDatosLocales();
+            actualizarCountersUI(datosLocales.stats);
+            renderLiveFeed(datosLocales.registros);
+        }
+
+        // ==========================================
+        // CONTROL DE SESIÓN (LOGIN & LOGOUT)
+        // ==========================================
+        function chequearSesiónPrevia() {
+            if (usuarioAutorizado && passwordAutorizado) {
+                // Autenticar visualmente de inmediato
+                document.getElementById("box-login").classList.add("hidden");
+                document.getElementById("box-registro").classList.remove("hidden");
+                cargarDatosIniciales();
+            }
+        }
+
+        document.getElementById("form-login").addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById("btn-login-submit");
+            const errEl = document.getElementById("login-error");
+            const user = document.getElementById("login-user").value.trim();
+            const pass = document.getElementById("login-pass").value;
+
+            btn.disabled = true;
+            btn.innerHTML = `<span class="inline-block animate-spin mr-1">⌛</span> Verificando...`;
+            errEl.classList.add("hidden");
+
+            // 1. Intentamos verificar contra el Web App si está configurado
+            if (WEB_APP_URL.includes("https://script.google.com")) {
+                fetch(WEB_APP_URL, {
+                    method: "POST",
+                    mode: "cors",
+                    headers: {
+                        "Content-Type": "text/plain;charset=utf-8"
+                    },
+                    body: JSON.stringify({
+                        accion: "login",
+                        usuario: user,
+                        password: pass
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    btn.disabled = false;
+                    btn.textContent = "Verificar Credenciales";
+
+                    if (data.status === "success") {
+                        // Establecer estado en línea
+                        dbOffline = false;
+                        document.getElementById("connection-status").textContent = "En Línea (Sheets)";
+                        document.getElementById("connection-status").className = "text-emerald-500 font-mono font-bold";
+
+                        // Guardar credenciales en la sesión
+                        usuarioAutorizado = user;
+                        passwordAutorizado = pass;
+                        sessionStorage.setItem("usuarioAutorizado", user);
+                        sessionStorage.setItem("passwordAutorizado", pass);
+
+                        // Transición visual
+                        document.getElementById("box-login").classList.add("hidden");
+                        document.getElementById("box-registro").classList.remove("hidden");
+                        
+                        // Cargar estadísticas y feed del Sheets
+                        if (data.stats) actualizarCountersUI(data.stats);
+                        if (data.recientes) renderLiveFeed(data.recientes);
+                        
+                        showToast(`Bienvenido(a), líder de ${user.split('.')[1] || 'la región'}`, "success");
+                    } else {
+                        errEl.textContent = `❌ ${data.message || "Usuario o Contraseña inválidos."}`;
+                        errEl.classList.remove("hidden");
+                    }
+                })
+                .catch(err => {
+                    console.log("Error de conexión al autenticar. Intentando validación local.", err);
+                    // Caer en validación local
+                    validarLocalmente(user, pass, btn, errEl);
+                });
+            } else {
+                // Validación local directa
+                validarLocalmente(user, pass, btn, errEl);
+            }
+        });
+
+        function validarLocalmente(user, pass, btn, errEl) {
+            btn.disabled = false;
+            btn.textContent = "Verificar Credenciales";
+
+            if (CREDENCIALES_LOCALES[user] && CREDENCIALES_LOCALES[user] === pass) {
+                usuarioAutorizado = user;
+                passwordAutorizado = pass;
+                sessionStorage.setItem("usuarioAutorizado", user);
+                sessionStorage.setItem("passwordAutorizado", pass);
+
+                document.getElementById("box-login").classList.add("hidden");
+                document.getElementById("box-registro").classList.remove("hidden");
+                
+                conmutarAModoLocal();
+                showToast("Acceso local verificado (Modo Offline)", "warning");
+            } else {
+                errEl.textContent = "❌ Usuario o Contraseña inválidos (Local).";
+                errEl.classList.remove("hidden");
+            }
+        }
+
+        function logout() {
+            usuarioAutorizado = "";
+            passwordAutorizado = "";
+            sessionStorage.removeItem("usuarioAutorizado");
+            sessionStorage.removeItem("passwordAutorizado");
+            
+            // Limpiar formularios
+            document.getElementById("form-login").reset();
+            document.getElementById("form-registro").reset();
+
+            // Transición
+            document.getElementById("box-registro").classList.add("hidden");
+            document.getElementById("box-login").classList.remove("hidden");
+            
+            showToast("Sesión cerrada correctamente", "info");
+        }
+
+        // ==========================================
+        // MANEJADOR DE REGISTRO (CENSO)
+        // ==========================================
+        document.getElementById("form-registro").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            if (!usuarioAutorizado || !passwordAutorizado) {
+                showToast("Tu sesión ha expirado. Por favor, loguéate de nuevo.", "error");
+                logout();
+                return;
+            }
+
+            const btn = document.getElementById("btn-registro-submit");
+            const nombre = document.getElementById("reg-nombre").value.trim();
+            const iglesia = document.getElementById("reg-iglesia").value;
+            const telefono = document.getElementById("reg-telefono").value.trim();
+            const area = document.getElementById("reg-area").value;
+
+            btn.disabled = true;
+            btn.innerHTML = `<span class="inline-block animate-spin mr-1">⌛</span> Inyectando a Base Global...`;
+
+            const nuevoRegistro = {
+                fecha: new Date().toISOString(),
+                nombre: nombre,
+                iglesia: iglesia,
+                telefono: telefono,
+                area: area,
+                registrador: usuarioAutorizado
+            };
+
+            // 1. Intentamos subir al Google Sheets si estamos en línea
+            if (WEB_APP_URL.includes("https://script.google.com") && !dbOffline) {
+                fetch(WEB_APP_URL, {
+                    method: "POST",
+                    mode: "cors",
+                    headers: {
+                        "Content-Type": "text/plain;charset=utf-8"
+                    },
+                    body: JSON.stringify({
+                        accion: "registrar",
+                        usuario: usuarioAutorizado,
+                        password: passwordAutorizado,
+                        nombre: nombre,
+                        iglesia: iglesia,
+                        telefono: telefono,
+                        area: area
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    btn.disabled = false;
+                    btn.textContent = "Registrar e Inyectar a Base Global";
+
+                    if (data.status === "success") {
+                        // Limpiar formulario
+                        document.getElementById("form-registro").reset();
+                        
+                        // Refrescar UI con datos del servidor
+                        if (data.stats) actualizarCountersUI(data.stats);
+                        if (data.recientes) renderLiveFeed(data.recientes);
+                        
+                        // Animar contador localmente para feedback inmediato
+                        const counterJov = document.getElementById("counter-jovenes");
+                        if (counterJov) {
+                            counterJov.classList.add("animate__animated", "animate__bounce");
+                            setTimeout(() => counterJov.classList.remove("animate__animated", "animate__bounce"), 1000);
+                        }
+
+                        showToast("¡Registro inyectado con éxito en Google Sheets!", "success");
+                    } else {
+                        showToast(`Error: ${data.message}`, "error");
+                    }
+                })
+                .catch(err => {
+                    console.log("Fallo de red al registrar. Guardando en base local.", err);
+                    guardarLocalmenteYSurgir(nuevoRegistro, btn);
+                });
+            } else {
+                guardarLocalmenteYSurgir(nuevoRegistro, btn);
+            }
+        });
+
+        function guardarLocalmenteYSurgir(nuevoRegistro, btn) {
+            btn.disabled = false;
+            btn.textContent = "Registrar e Inyectar a Base Global";
+
+            const datosActualizados = guardarRegistroLocal(nuevoRegistro);
+            
+            // Actualizar UI
+            actualizarCountersUI(datosActualizados.stats);
+            renderLiveFeed(datosActualizados.registros);
+
+            // Efecto de pulso en el contador
+            const counterJov = document.getElementById("counter-jovenes");
+            if (counterJov) {
+                counterJov.classList.add("animate__animated", "animate__bounce");
+                setTimeout(() => counterJov.classList.remove("animate__animated", "animate__bounce"), 1000);
+            }
+
+            // Limpiar formulario
+            document.getElementById("form-registro").reset();
+
+            showToast("Guardado localmente de forma segura (Offline)", "warning");
+        }
+
+        // ==========================================
+        // INICIALIZACIÓN
+        // ==========================================
+        document.addEventListener("DOMContentLoaded", () => {
+            // Inicializar animaciones de AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+
+            // Verificar si hay sesión guardada para brincarse el login
+            chequearSesiónPrevia();
+
+            // Cargar datos (del servidor o local)
+            cargarDatosIniciales();
+
+            // Iniciar observadores para animar los números al bajar scroll
+            initCounterAnimations();
+        });
+    </script>
+</body>
+</html>
