@@ -385,11 +385,12 @@
                                 <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Iglesia Local</label>
                                 <select id="reg-iglesia" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all">
                                     <option value="" disabled selected>Selecciona tu iglesia</option>
-                                    <option value="Coclé Central">IDP Coclé Central</option>
-                                    <option value="Penonomé">IDP Penonomé</option>
-                                    <option value="Santiago">IDP Santiago</option>
-                                    <option value="Chitré">IDP Chitré</option>
-                                    <option value="Bocas del Toro">IDP Bocas del Toro</option>
+                                    <option value="IDP Bocas del Toro">IDP Bocas del Toro</option>
+                                    <option value="IDP Coclé">IDP Coclé</option>
+                                    <option value="IDP Chiriquí">IDP Chiriquí</option>
+                                    <option value="IDP Herrera">IDP Herrera</option>
+                                    <option value="IDP Los Santos">IDP Los Santos</option>
+                                    <option value="IDP Veraguas">IDP Veraguas</option>
                                 </select>
                             </div>
                         </div>
@@ -686,10 +687,10 @@
         const MOCK_STATS_CLAVE = "mj_stats_local_v1";
 
         const MOCK_REGISTROS_INICIALES = [
-            { fecha: new Date(Date.now() - 1000 * 60 * 60).toISOString(), nombre: "Carlos Torres", iglesia: "Penonomé", telefono: "6622-1133", area: "Multimedia", registrador: "lider.penonome" },
-            { fecha: new Date(Date.now() - 1000 * 60 * 180).toISOString(), nombre: "Maybelis Castillo", iglesia: "Coclé Central", telefono: "6544-9988", area: "Espiritual", registrador: "lider.cocle" },
-            { fecha: new Date(Date.now() - 1000 * 60 * 300).toISOString(), nombre: "David Rodríguez", iglesia: "Santiago", telefono: "6711-2244", area: "Evangelismo", registrador: "admin.general" },
-            { fecha: new Date(Date.now() - 1000 * 60 * 450).toISOString(), nombre: "José Pinto", iglesia: "Bocas del Toro", telefono: "6900-5511", area: "Logística", registrador: "lider.bocas" }
+            { fecha: new Date(Date.now() - 1000 * 60 * 60).toISOString(), nombre: "Carlos Torres", iglesia: "IDP Chiriquí", telefono: "6622-1133", area: "Multimedia", registrador: "admin.general" },
+            { fecha: new Date(Date.now() - 1000 * 60 * 180).toISOString(), nombre: "Maybelis Castillo", iglesia: "IDP Coclé", telefono: "6544-9988", area: "Espiritual", registrador: "lider.cocle" },
+            { fecha: new Date(Date.now() - 1000 * 60 * 300).toISOString(), nombre: "David Rodríguez", iglesia: "IDP Veraguas", telefono: "6711-2244", area: "Evangelismo", registrador: "admin.general" },
+            { fecha: new Date(Date.now() - 1000 * 60 * 450).toISOString(), nombre: "José Pinto", iglesia: "IDP Bocas del Toro", telefono: "6900-5511", area: "Logística", registrador: "lider.bocas" }
         ];
 
         function obtenerDatosLocales() {
@@ -721,7 +722,7 @@
             
             // Verificar iglesias únicas
             const iglesias = new Set(datos.registros.map(r => r.iglesia));
-            iglesias.add("Coclé Central"); iglesias.add("Penonomé"); iglesias.add("Santiago"); iglesias.add("Chitré"); iglesias.add("Bocas del Toro");
+            iglesias.add("IDP Bocas del Toro"); iglesias.add("IDP Coclé"); iglesias.add("IDP Chiriquí"); iglesias.add("IDP Herrera"); iglesias.add("IDP Los Santos"); iglesias.add("IDP Veraguas");
             datos.stats.iglesias = iglesias.size;
 
             // Verificar líderes únicos
@@ -758,9 +759,10 @@
                 // Color según la iglesia
                 let badgeBg = "bg-slate-100 text-slate-600";
                 if (reg.iglesia.includes("Coclé")) badgeBg = "bg-blue-50 text-blue-700 border border-blue-100";
-                else if (reg.iglesia.includes("Penonomé")) badgeBg = "bg-purple-50 text-purple-700 border border-purple-100";
-                else if (reg.iglesia.includes("Santiago")) badgeBg = "bg-emerald-50 text-emerald-700 border border-emerald-100";
-                else if (reg.iglesia.includes("Chitré")) badgeBg = "bg-orange-50 text-orange-700 border border-orange-100";
+                else if (reg.iglesia.includes("Chiriquí")) badgeBg = "bg-purple-50 text-purple-700 border border-purple-100";
+                else if (reg.iglesia.includes("Veraguas")) badgeBg = "bg-emerald-50 text-emerald-700 border border-emerald-100";
+                else if (reg.iglesia.includes("Herrera")) badgeBg = "bg-orange-50 text-orange-700 border border-orange-100";
+                else if (reg.iglesia.includes("Los Santos")) badgeBg = "bg-red-50 text-red-700 border border-red-100";
                 else if (reg.iglesia.includes("Bocas")) badgeBg = "bg-amber-50 text-amber-700 border border-amber-100";
 
                 const dateStr = reg.fecha ? new Date(reg.fecha).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "";
