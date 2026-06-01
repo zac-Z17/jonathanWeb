@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <script>
         tailwind.config = {
             theme: {
@@ -51,7 +52,7 @@
                 <a href="#equipo" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Estructura</a>
                 <a href="#iglesia" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Iglesia Local</a>
                 <a href="#formacion" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Formación</a>
-                <a href="#registro" class="text-amber-400 hover:text-amber-300 transition-colors relative font-bold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-amber-400 after:transition-all">Censo Liderazgo</a>
+                <a href="dashboard.html" class="text-amber-400 hover:text-amber-300 transition-colors relative font-bold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-amber-400 after:transition-all">Censo Liderazgo</a>
                 <a href="#calendario" class="hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-mjAzul after:transition-all">Eventos 2026</a>
             </div>
             <a href="#calendario" class="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-red-600/20">
@@ -74,7 +75,7 @@
                 Nuestra hoja de ruta territorial desde <span class="text-amber-400 font-bold">Coclé hasta Bocas del Toro</span>. No llenamos el calendario por llenar; levantamos líderes con propósito, servicio real y orden organizativo.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                <a href="#registro" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-500/30 text-center text-sm">
+                <a href="dashboard.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-500/30 text-center text-sm">
                     Acceso Censo Líderes
                 </a>
                 <a href="#calendario" class="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-red-600/30 text-center text-sm">
@@ -324,108 +325,24 @@
         </div>
     </section>
 
-    <section id="registro" class="py-24 bg-amber-50/60 border-t border-b border-amber-200/40 px-6 scroll-mt-20 overflow-hidden">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-5 space-y-4" data-aos="fade-right">
-                <h2 class="text-xs font-bold tracking-widest text-amber-600 uppercase">MÓDULO PRIVADO // Censo 2026</h2>
-                <h3 class="text-3xl font-black text-slate-900 tracking-tight leading-tight">Acceso Exclusivo para Líderes</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">
-                    Para proteger los datos de nuestra pastoral juvenil regional, esta sesión requiere validación de credenciales. Una vez accedas, podrás ingresar nuevos miembros y ver las métricas reflejadas globalmente en tiempo real.
+    <section id="registro" class="py-24 bg-slate-900 text-white px-6 scroll-mt-20 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center space-y-8" data-aos="zoom-in">
+            <span class="inline-block bg-white/5 border border-amber-500/30 text-amber-500 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase animate__pulse animate__infinite">
+                Portal Privado de Liderazgo
+            </span>
+            <div class="space-y-4 max-w-2xl mx-auto">
+                <h3 class="text-3xl sm:text-4xl font-black tracking-tight leading-tight">Censo Administrativo Regional 2026</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Para garantizar el orden organizativo y la seguridad de la información eclesial, el censo y control de registros se administran de manera exclusiva en el nuevo **Portal de Liderazgo**.
                 </p>
-                <div class="bg-slate-900 text-slate-400 p-4 rounded-xl text-[11px] space-y-1 border border-slate-800">
-                    <span class="text-amber-400 font-bold block">🔒 Datos Encriptados:</span>
-                    Cumplimos con las directrices administrativas para el manejo seguro de información eclesial interna.
-                </div>
             </div>
-
-            <div class="lg:col-span-7" data-aos="fade-left">
-                
-                <div id="box-login" class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-md space-y-6">
-                    <div class="text-center space-y-1">
-                        <div class="w-12 h-12 bg-amber-500/10 text-amber-600 rounded-full flex items-center justify-center mx-auto text-xl">🔒</div>
-                        <h4 class="font-black text-slate-900 text-lg">Iniciar Sesión de Liderazgo</h4>
-                        <p class="text-slate-400 text-xs">Digita tus accesos autorizados para desbloquear la base de datos.</p>
-                    </div>
-                    
-                    <form id="form-login" class="space-y-4">
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold uppercase text-slate-500 tracking-wider">Usuario Regional</label>
-                            <input type="text" id="login-user" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all" placeholder="Ej. lider.cocle">
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-[10px] font-bold uppercase text-slate-500 tracking-wider">Contraseña de Seguridad</label>
-                            <input type="password" id="login-pass" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all" placeholder="••••••••">
-                        </div>
-                        <button type="submit" id="btn-login-submit" class="w-full bg-slate-950 hover:bg-mjAzul text-white font-bold py-3 rounded-xl transition-all duration-300 text-xs tracking-wider uppercase">
-                            Verificar Credenciales
-                        </button>
-                    </form>
-                    <p id="login-error" class="text-center text-xs text-red-600 font-bold hidden">❌ Usuario o Contraseña inválidos. Inténtalo de nuevo.</p>
-                </div>
-
-                <div id="box-registro" class="bg-white p-6 md:p-8 rounded-2xl border border-emerald-200 shadow-xl space-y-6 hidden">
-                    <div class="flex justify-between items-center border-b border-slate-100 pb-3">
-                        <div>
-                            <h4 class="font-black text-slate-900 text-base">Formulario de Ingreso Autorizado</h4>
-                            <p class="text-[11px] text-emerald-600 font-medium">Conexión Segura Establecida con la Región 1</p>
-                        </div>
-                        <button onclick="logout()" class="text-[10px] font-bold bg-slate-100 hover:bg-red-50 hover:text-red-600 px-3 py-1.5 rounded-lg transition-colors text-slate-500">
-                            Cerrar Sesión
-                        </button>
-                    </div>
-                    
-                    <form id="form-registro" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="space-y-1">
-                                <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Nombre Completo</label>
-                                <input type="text" id="reg-nombre" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all" placeholder="Ej. Juan Pérez">
-                            </div>
-                            <div class="space-y-1">
-                                <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Iglesia Local</label>
-                                <select id="reg-iglesia" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all">
-                                    <option value="" disabled selected>Selecciona tu iglesia</option>
-                                    <option value="IDP Bocas del Toro">IDP Bocas del Toro</option>
-                                    <option value="IDP Coclé">IDP Coclé</option>
-                                    <option value="IDP Chiriquí">IDP Chiriquí</option>
-                                    <option value="IDP Herrera">IDP Herrera</option>
-                                    <option value="IDP Los Santos">IDP Los Santos</option>
-                                    <option value="IDP Veraguas">IDP Veraguas</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="space-y-1">
-                                <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Teléfono / WhatsApp</label>
-                                <input type="tel" id="reg-telefono" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all" placeholder="Ej. 6600-0000">
-                            </div>
-                            <div class="space-y-1">
-                                <label class="text-[11px] font-bold uppercase text-slate-500 tracking-wider">Área de Interés / Servicio</label>
-                                <select id="reg-area" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-mjAzul focus:bg-white transition-all">
-                                    <option value="" disabled selected>Selecciona un área</option>
-                                    <option value="Evangelismo">Evangelismo y Consolidación</option>
-                                    <option value="Multimedia">Multimedia y Redes</option>
-                                    <option value="Logística">Logística y Operaciones</option>
-                                    <option value="Espiritual">Desarrollo Espiritual</option>
-                                    <option value="Ninguno">Solo Asistir por Ahora</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button type="submit" id="btn-registro-submit" class="w-full bg-emerald-600 hover:bg-slate-900 text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 shadow-md text-sm">
-                            Registrar e Inyectar a Base Global
-                        </button>
-                    </form>
-
-                    <div class="pt-4 border-t border-slate-100 space-y-2">
-                        <span class="text-[10px] font-bold uppercase text-slate-400 tracking-widest block">Historial Reciente Emitido:</span>
-                        <div id="live-feed" class="space-y-2 max-h-32 overflow-y-auto pr-1">
-                            <!-- Los registros ingresados aparecerán aquí dinámicamente -->
-                        </div>
-                    </div>
-                </div>
-
+            <div class="flex justify-center pt-2">
+                <a href="dashboard.html" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-amber-500/25 flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-right-to-bracket text-base"></i> Acceder al Portal de Liderazgo
+                </a>
+            </div>
+            <div class="text-[11px] text-slate-500 max-w-xs mx-auto flex items-center justify-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Conexión segura y cifrada activa
             </div>
         </div>
     </section>
@@ -570,63 +487,8 @@
 
     <script>
         // --- CONFIGURACIÓN GENERAL ---
-        // ¡REEMPLAZA ESTE TEXTO por tu enlace real largo de ejecución de Web App que termine en /exec!
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzRyFJUJuKRN_3oRv31oiyZLGpki6C_dVuRLr4PtVDBbyuqoBetYe4KISAEmDIIKYdz/exec";
-
-        // Credenciales de respaldo local para simulación fuera de línea o de prueba rápida
-        const CREDENCIALES_LOCALES = {
-            "admin.general": "IDP*Reg1*2026",
-            "lider.cocle": "Cocle#MJSector1",
-            "lider.veraguas": "Ver@guas#MJ26",
-            "lider.herrera": "Herrer@#IDP2026",
-            "lider.lossantos": "San+os#MJ1921",
-            "lider.bocas": "Boc@s*DelToro1"
-        };
-
-        // Variables globales temporales para mantener la sesión activa
-        let usuarioAutorizado = sessionStorage.getItem("usuarioAutorizado") || "";
-        let passwordAutorizado = sessionStorage.getItem("passwordAutorizado") || "";
-        let dbOffline = false;
-
-        // ==========================================
-        // SISTEMA DE NOTIFICACIONES (TOAST)
-        // ==========================================
-        function showToast(message, type = "success") {
-            const container = document.getElementById("toast-container");
-            const toast = document.createElement("div");
-            toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl border shadow-lg transition-all duration-500 transform translate-x-20 opacity-0 min-w-[280px]`;
-            
-            let bgClass = "bg-white text-slate-800 border-slate-200";
-            let icon = "🔔";
-
-            if (type === "success") {
-                bgClass = "bg-emerald-950/90 text-emerald-300 border-emerald-800/50 backdrop-blur-md";
-                icon = "✅";
-            } else if (type === "error") {
-                bgClass = "bg-red-950/90 text-red-300 border-red-800/50 backdrop-blur-md";
-                icon = "❌";
-            } else if (type === "warning") {
-                bgClass = "bg-amber-950/90 text-amber-300 border-amber-800/50 backdrop-blur-md";
-                icon = "⚠️";
-            }
-
-            toast.className += ` ${bgClass}`;
-            toast.innerHTML = `<span class="text-base">${icon}</span><span class="text-xs font-bold font-sans">${message}</span>`;
-            container.appendChild(toast);
-
-            // Forzar reflow para animación de entrada
-            setTimeout(() => {
-                toast.classList.remove("translate-x-20", "opacity-0");
-            }, 10);
-
-            // Eliminar elemento después de unos segundos
-            setTimeout(() => {
-                toast.classList.add("translate-x-20", "opacity-0");
-                setTimeout(() => {
-                    toast.remove();
-                }, 500);
-            }, 4000);
-        }
+        const STATS_RESPALDO = { jovenes: 342, iglesias: 18, lideres: 24 };
 
         // ==========================================
         // ANIMACIÓN DE CONTADORES
@@ -681,110 +543,6 @@
         }
 
         // ==========================================
-        // CARGA Y CONFIGURACIÓN DE DATOS (LOCAL STORAGE)
-        // ==========================================
-        const MOCK_REGISTROS_CLAVE = "mj_registros_local_v1";
-        const MOCK_STATS_CLAVE = "mj_stats_local_v1";
-
-        const MOCK_REGISTROS_INICIALES = [
-            { fecha: new Date(Date.now() - 1000 * 60 * 60).toISOString(), nombre: "Carlos Torres", iglesia: "IDP Chiriquí", telefono: "6622-1133", area: "Multimedia", registrador: "admin.general" },
-            { fecha: new Date(Date.now() - 1000 * 60 * 180).toISOString(), nombre: "Maybelis Castillo", iglesia: "IDP Coclé", telefono: "6544-9988", area: "Espiritual", registrador: "lider.cocle" },
-            { fecha: new Date(Date.now() - 1000 * 60 * 300).toISOString(), nombre: "David Rodríguez", iglesia: "IDP Veraguas", telefono: "6711-2244", area: "Evangelismo", registrador: "admin.general" },
-            { fecha: new Date(Date.now() - 1000 * 60 * 450).toISOString(), nombre: "José Pinto", iglesia: "IDP Bocas del Toro", telefono: "6900-5511", area: "Logística", registrador: "lider.bocas" }
-        ];
-
-        function obtenerDatosLocales() {
-            let registros = localStorage.getItem(MOCK_REGISTROS_CLAVE);
-            let stats = localStorage.getItem(MOCK_STATS_CLAVE);
-
-            if (!registros) {
-                localStorage.setItem(MOCK_REGISTROS_CLAVE, JSON.stringify(MOCK_REGISTROS_INICIALES));
-                registros = JSON.stringify(MOCK_REGISTROS_INICIALES);
-            }
-            if (!stats) {
-                const statsIniciales = { jovenes: 342, iglesias: 18, lideres: 24 };
-                localStorage.setItem(MOCK_STATS_CLAVE, JSON.stringify(statsIniciales));
-                stats = JSON.stringify(statsIniciales);
-            }
-
-            return {
-                registros: JSON.parse(registros),
-                stats: JSON.parse(stats)
-            };
-        }
-
-        function guardarRegistroLocal(nuevoRegistro) {
-            const datos = obtenerDatosLocales();
-            datos.registros.push(nuevoRegistro);
-            
-            // Actualizar contadores locales
-            datos.stats.jovenes += 1;
-            
-            // Verificar iglesias únicas
-            const iglesias = new Set(datos.registros.map(r => r.iglesia));
-            iglesias.add("IDP Bocas del Toro"); iglesias.add("IDP Coclé"); iglesias.add("IDP Chiriquí"); iglesias.add("IDP Herrera"); iglesias.add("IDP Los Santos"); iglesias.add("IDP Veraguas");
-            datos.stats.iglesias = iglesias.size;
-
-            // Verificar líderes únicos
-            const lideres = new Set(datos.registros.map(r => r.registrador));
-            lideres.add("admin.general"); lideres.add("lider.cocle");
-            datos.stats.lideres = lideres.size;
-
-            localStorage.setItem(MOCK_REGISTROS_CLAVE, JSON.stringify(datos.registros));
-            localStorage.setItem(MOCK_STATS_CLAVE, JSON.stringify(datos.stats));
-
-            return datos;
-        }
-
-        // ==========================================
-        // RENDERIZADO DEL FEED DE HISTORIAL
-        // ==========================================
-        function renderLiveFeed(registros) {
-            const feed = document.getElementById("live-feed");
-            if (!feed) return;
-            feed.innerHTML = "";
-
-            if (!registros || registros.length === 0) {
-                feed.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-2">No hay registros recientes.</p>`;
-                return;
-            }
-
-            // Invertir para mostrar los más nuevos arriba
-            const ordenados = [...registros].reverse().slice(0, 10);
-
-            ordenados.forEach(reg => {
-                const item = document.createElement("div");
-                item.className = "bg-slate-50 border border-slate-100 p-2.5 rounded-xl flex items-center justify-between text-[11px] hover:border-slate-200 transition-all";
-                
-                // Color según la iglesia
-                let badgeBg = "bg-slate-100 text-slate-600";
-                if (reg.iglesia.includes("Coclé")) badgeBg = "bg-blue-50 text-blue-700 border border-blue-100";
-                else if (reg.iglesia.includes("Chiriquí")) badgeBg = "bg-purple-50 text-purple-700 border border-purple-100";
-                else if (reg.iglesia.includes("Veraguas")) badgeBg = "bg-emerald-50 text-emerald-700 border border-emerald-100";
-                else if (reg.iglesia.includes("Herrera")) badgeBg = "bg-orange-50 text-orange-700 border border-orange-100";
-                else if (reg.iglesia.includes("Los Santos")) badgeBg = "bg-red-50 text-red-700 border border-red-100";
-                else if (reg.iglesia.includes("Bocas")) badgeBg = "bg-amber-50 text-amber-700 border border-amber-100";
-
-                const dateStr = reg.fecha ? new Date(reg.fecha).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "";
-
-                item.innerHTML = `
-                    <div class="space-y-0.5">
-                        <div class="flex items-center gap-1.5">
-                            <span class="font-bold text-slate-900">${reg.nombre}</span>
-                            <span class="text-[9px] px-1.5 py-0.5 rounded-full font-bold ${badgeBg}">${reg.iglesia}</span>
-                        </div>
-                        <p class="text-slate-500">Servicio: <strong class="text-slate-700">${reg.area}</strong> • Ref: ${reg.telefono}</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-[9px] font-mono text-slate-400 block">${dateStr}</span>
-                        <span class="text-[9px] text-slate-500 font-semibold">Por: ${reg.registrador}</span>
-                    </div>
-                `;
-                feed.appendChild(item);
-            });
-        }
-
-        // ==========================================
         // ACTUALIZACIÓN DE CONTADORES EN LA UI
         // ==========================================
         function actualizarCountersUI(stats) {
@@ -801,271 +559,44 @@
             if (lCounter) lCounter.textContent = stats.lideres;
         }
 
-        // Sincroniza desde el Sheets o el LocalStorage al cargar
+        // Carga los datos globales (total de inscritos activos) desde Sheets
         function cargarDatosIniciales() {
             if (WEB_APP_URL.includes("https://script.google.com")) {
-                // Hacer petición GET para refrescar datos iniciales
                 fetch(WEB_APP_URL, {
                     method: "GET",
                     mode: "cors"
                 })
                 .then(res => res.json())
                 .then(resData => {
-                    if (resData.status === "success" || resData.stats) {
+                    if (resData.stats) {
                         actualizarCountersUI(resData.stats);
-                        renderLiveFeed(resData.recientes);
-                        
-                        // Guardar copia local por si acaso
-                        localStorage.setItem(MOCK_REGISTROS_CLAVE, JSON.stringify(resData.recientes));
-                        localStorage.setItem(MOCK_STATS_CLAVE, JSON.stringify(resData.stats));
-                        
-                        document.getElementById("connection-status").textContent = "En Línea (Sheets)";
-                        document.getElementById("connection-status").className = "text-emerald-500 font-mono font-bold";
-                        dbOffline = false;
-                    } else {
-                        throw new Error("Respuesta inválida del servidor");
+                    } else if (resData.jovenes) {
+                        actualizarCountersUI({
+                            jovenes: resData.jovenes,
+                            iglesias: resData.iglesias || 18,
+                            lideres: resData.lideres || 24
+                        });
+                    }
+                    
+                    const statusEl = document.getElementById("connection-status");
+                    if (statusEl) {
+                        statusEl.textContent = "Conectado a Sheets";
+                        statusEl.className = "text-emerald-500 font-mono font-bold";
                     }
                 })
                 .catch(err => {
-                    console.log("No se pudo conectar a Google Sheets. Usando base de datos local de respaldo.", err);
-                    conmutarAModoLocal();
-                });
-            } else {
-                conmutarAModoLocal();
-            }
-        }
-
-        function conmutarAModoLocal() {
-            dbOffline = true;
-            document.getElementById("connection-status").textContent = "Offline (Local)";
-            document.getElementById("connection-status").className = "text-amber-500 font-mono font-bold";
-            
-            const datosLocales = obtenerDatosLocales();
-            actualizarCountersUI(datosLocales.stats);
-            renderLiveFeed(datosLocales.registros);
-        }
-
-        // ==========================================
-        // CONTROL DE SESIÓN (LOGIN & LOGOUT)
-        // ==========================================
-        function chequearSesiónPrevia() {
-            if (usuarioAutorizado && passwordAutorizado) {
-                // Autenticar visualmente de inmediato
-                document.getElementById("box-login").classList.add("hidden");
-                document.getElementById("box-registro").classList.remove("hidden");
-                cargarDatosIniciales();
-            }
-        }
-
-        document.getElementById("form-login").addEventListener("submit", function(e) {
-            e.preventDefault();
-            
-            const btn = document.getElementById("btn-login-submit");
-            const errEl = document.getElementById("login-error");
-            const user = document.getElementById("login-user").value.trim();
-            const pass = document.getElementById("login-pass").value;
-
-            btn.disabled = true;
-            btn.innerHTML = `<span class="inline-block animate-spin mr-1">⌛</span> Verificando...`;
-            errEl.classList.add("hidden");
-
-            // 1. Intentamos verificar contra el Web App si está configurado
-            if (WEB_APP_URL.includes("https://script.google.com")) {
-                fetch(WEB_APP_URL, {
-                    method: "POST",
-                    mode: "cors",
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8"
-                    },
-                    body: JSON.stringify({
-                        accion: "login",
-                        usuario: user,
-                        password: pass
-                    })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    btn.disabled = false;
-                    btn.textContent = "Verificar Credenciales";
-
-                    if (data.status === "success") {
-                        // Establecer estado en línea
-                        dbOffline = false;
-                        document.getElementById("connection-status").textContent = "En Línea (Sheets)";
-                        document.getElementById("connection-status").className = "text-emerald-500 font-mono font-bold";
-
-                        // Guardar credenciales en la sesión
-                        usuarioAutorizado = user;
-                        passwordAutorizado = pass;
-                        sessionStorage.setItem("usuarioAutorizado", user);
-                        sessionStorage.setItem("passwordAutorizado", pass);
-
-                        // Transición visual
-                        document.getElementById("box-login").classList.add("hidden");
-                        document.getElementById("box-registro").classList.remove("hidden");
-                        
-                        // Cargar estadísticas y feed del Sheets
-                        if (data.stats) actualizarCountersUI(data.stats);
-                        if (data.recientes) renderLiveFeed(data.recientes);
-                        
-                        showToast(`Bienvenido(a), líder de ${user.split('.')[1] || 'la región'}`, "success");
-                    } else {
-                        errEl.textContent = `❌ ${data.message || "Usuario o Contraseña inválidos."}`;
-                        errEl.classList.remove("hidden");
+                    console.log("No se pudo conectar a Google Sheets. Usando datos de respaldo.", err);
+                    actualizarCountersUI(STATS_RESPALDO);
+                    
+                    const statusEl = document.getElementById("connection-status");
+                    if (statusEl) {
+                        statusEl.textContent = "Modo Respaldo";
+                        statusEl.className = "text-amber-500 font-mono font-bold";
                     }
-                })
-                .catch(err => {
-                    console.log("Error de conexión al autenticar. Intentando validación local.", err);
-                    // Caer en validación local
-                    validarLocalmente(user, pass, btn, errEl);
                 });
             } else {
-                // Validación local directa
-                validarLocalmente(user, pass, btn, errEl);
+                actualizarCountersUI(STATS_RESPALDO);
             }
-        });
-
-        function validarLocalmente(user, pass, btn, errEl) {
-            btn.disabled = false;
-            btn.textContent = "Verificar Credenciales";
-
-            if (CREDENCIALES_LOCALES[user] && CREDENCIALES_LOCALES[user] === pass) {
-                usuarioAutorizado = user;
-                passwordAutorizado = pass;
-                sessionStorage.setItem("usuarioAutorizado", user);
-                sessionStorage.setItem("passwordAutorizado", pass);
-
-                document.getElementById("box-login").classList.add("hidden");
-                document.getElementById("box-registro").classList.remove("hidden");
-                
-                conmutarAModoLocal();
-                showToast("Acceso local verificado (Modo Offline)", "warning");
-            } else {
-                errEl.textContent = "❌ Usuario o Contraseña inválidos (Local).";
-                errEl.classList.remove("hidden");
-            }
-        }
-
-        function logout() {
-            usuarioAutorizado = "";
-            passwordAutorizado = "";
-            sessionStorage.removeItem("usuarioAutorizado");
-            sessionStorage.removeItem("passwordAutorizado");
-            
-            // Limpiar formularios
-            document.getElementById("form-login").reset();
-            document.getElementById("form-registro").reset();
-
-            // Transición
-            document.getElementById("box-registro").classList.add("hidden");
-            document.getElementById("box-login").classList.remove("hidden");
-            
-            showToast("Sesión cerrada correctamente", "info");
-        }
-
-        // ==========================================
-        // MANEJADOR DE REGISTRO (CENSO)
-        // ==========================================
-        document.getElementById("form-registro").addEventListener("submit", function(e) {
-            e.preventDefault();
-
-            if (!usuarioAutorizado || !passwordAutorizado) {
-                showToast("Tu sesión ha expirado. Por favor, loguéate de nuevo.", "error");
-                logout();
-                return;
-            }
-
-            const btn = document.getElementById("btn-registro-submit");
-            const nombre = document.getElementById("reg-nombre").value.trim();
-            const iglesia = document.getElementById("reg-iglesia").value;
-            const telefono = document.getElementById("reg-telefono").value.trim();
-            const area = document.getElementById("reg-area").value;
-
-            btn.disabled = true;
-            btn.innerHTML = `<span class="inline-block animate-spin mr-1">⌛</span> Inyectando a Base Global...`;
-
-            const nuevoRegistro = {
-                fecha: new Date().toISOString(),
-                nombre: nombre,
-                iglesia: iglesia,
-                telefono: telefono,
-                area: area,
-                registrador: usuarioAutorizado
-            };
-
-            // 1. Intentamos subir al Google Sheets si estamos en línea
-            if (WEB_APP_URL.includes("https://script.google.com") && !dbOffline) {
-                fetch(WEB_APP_URL, {
-                    method: "POST",
-                    mode: "cors",
-                    headers: {
-                        "Content-Type": "text/plain;charset=utf-8"
-                    },
-                    body: JSON.stringify({
-                        accion: "registrar",
-                        usuario: usuarioAutorizado,
-                        password: passwordAutorizado,
-                        nombre: nombre,
-                        iglesia: iglesia,
-                        telefono: telefono,
-                        area: area
-                    })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    btn.disabled = false;
-                    btn.textContent = "Registrar e Inyectar a Base Global";
-
-                    if (data.status === "success") {
-                        // Limpiar formulario
-                        document.getElementById("form-registro").reset();
-                        
-                        // Refrescar UI con datos del servidor
-                        if (data.stats) actualizarCountersUI(data.stats);
-                        if (data.recientes) renderLiveFeed(data.recientes);
-                        
-                        // Animar contador localmente para feedback inmediato
-                        const counterJov = document.getElementById("counter-jovenes");
-                        if (counterJov) {
-                            counterJov.classList.add("animate__animated", "animate__bounce");
-                            setTimeout(() => counterJov.classList.remove("animate__animated", "animate__bounce"), 1000);
-                        }
-
-                        showToast("¡Registro inyectado con éxito en Google Sheets!", "success");
-                    } else {
-                        showToast(`Error: ${data.message}`, "error");
-                    }
-                })
-                .catch(err => {
-                    console.log("Fallo de red al registrar. Guardando en base local.", err);
-                    guardarLocalmenteYSurgir(nuevoRegistro, btn);
-                });
-            } else {
-                guardarLocalmenteYSurgir(nuevoRegistro, btn);
-            }
-        });
-
-        function guardarLocalmenteYSurgir(nuevoRegistro, btn) {
-            btn.disabled = false;
-            btn.textContent = "Registrar e Inyectar a Base Global";
-
-            const datosActualizados = guardarRegistroLocal(nuevoRegistro);
-            
-            // Actualizar UI
-            actualizarCountersUI(datosActualizados.stats);
-            renderLiveFeed(datosActualizados.registros);
-
-            // Efecto de pulso en el contador
-            const counterJov = document.getElementById("counter-jovenes");
-            if (counterJov) {
-                counterJov.classList.add("animate__animated", "animate__bounce");
-                setTimeout(() => counterJov.classList.remove("animate__animated", "animate__bounce"), 1000);
-            }
-
-            // Limpiar formulario
-            document.getElementById("form-registro").reset();
-
-            showToast("Guardado localmente de forma segura (Offline)", "warning");
         }
 
         // ==========================================
@@ -1079,10 +610,7 @@
                 offset: 50
             });
 
-            // Verificar si hay sesión guardada para brincarse el login
-            chequearSesiónPrevia();
-
-            // Cargar datos (del servidor o local)
+            // Cargar datos
             cargarDatosIniciales();
 
             // Iniciar observadores para animar los números al bajar scroll
