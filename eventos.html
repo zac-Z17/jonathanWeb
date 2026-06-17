@@ -321,7 +321,7 @@
                                         <tr class="bg-slate-900 text-slate-400 font-bold uppercase border-b border-slate-800">
                                             <th class="p-4 sm:p-5">Nombre Asistente</th>
                                             <th class="p-4 sm:p-5">Evento</th>
-                                            <th class="p-4 sm:p-5">Región</th>
+                                            <th class="p-4 sm:p-5">Distrito</th>
                                             <th class="p-4 sm:p-5">Teléfono</th>
                                             <th class="p-4 sm:p-5 text-center">Tipo</th>
                                             <th class="p-4 sm:p-5 text-center">Monto</th>
@@ -415,25 +415,11 @@
                 </div>
 
                 <!-- Bloque 2: Datos Eclesiales/Geográficos -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <input type="hidden" id="ins-region" value="">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-1.5">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Región</label>
-                        <select id="ins-region" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
-                            <option value="Bocas del Toro">Bocas del Toro</option>
-                            <option value="Coclé">Coclé</option>
-                            <option value="Chiriquí">Chiriquí</option>
-                            <option value="Herrera">Herrera</option>
-                            <option value="Los Santos">Los Santos</option>
-                            <option value="Veraguas">Veraguas</option>
-                        </select>
-                    </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Distrito</label>
-                        <input type="text" id="ins-distrito" required placeholder="Ej. Penonomé" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
-                    </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Iglesia Local</label>
-                        <select id="ins-iglesia" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Distrito (Iglesia Regional)</label>
+                        <select id="ins-distrito" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
                             <option value="IDP Bocas del Toro">IDP Bocas del Toro</option>
                             <option value="IDP Coclé">IDP Coclé</option>
                             <option value="IDP Chiriquí">IDP Chiriquí</option>
@@ -441,6 +427,10 @@
                             <option value="IDP Los Santos">IDP Los Santos</option>
                             <option value="IDP Veraguas">IDP Veraguas</option>
                         </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Iglesia Local (Nombre)</label>
+                        <input type="text" id="ins-iglesia" required placeholder="Ej. Templo Siloé" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
                     </div>
                 </div>
 
@@ -587,25 +577,11 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-3 gap-4">
+                <input type="hidden" id="admin-ins-region" value="">
+                <div class="grid grid-cols-2 gap-4">
                     <div class="space-y-1.5">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Región</label>
-                        <select id="admin-ins-region" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul transition-all">
-                            <option value="Bocas del Toro">Bocas del Toro</option>
-                            <option value="Coclé">Coclé</option>
-                            <option value="Chiriquí">Chiriquí</option>
-                            <option value="Herrera">Herrera</option>
-                            <option value="Los Santos">Los Santos</option>
-                            <option value="Veraguas">Veraguas</option>
-                        </select>
-                    </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Distrito</label>
-                        <input type="text" id="admin-ins-distrito" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
-                    </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Iglesia</label>
-                        <select id="admin-ins-iglesia" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul transition-all">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Distrito (Iglesia Regional)</label>
+                        <select id="admin-ins-distrito" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul transition-all">
                             <option value="IDP Bocas del Toro">IDP Bocas del Toro</option>
                             <option value="IDP Coclé">IDP Coclé</option>
                             <option value="IDP Chiriquí">IDP Chiriquí</option>
@@ -613,6 +589,10 @@
                             <option value="IDP Los Santos">IDP Los Santos</option>
                             <option value="IDP Veraguas">IDP Veraguas</option>
                         </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Iglesia Local (Nombre)</label>
+                        <input type="text" id="admin-ins-iglesia" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
                     </div>
                 </div>
 

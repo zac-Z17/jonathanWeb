@@ -865,9 +865,9 @@ function renderGráficosAdmin(eventos, inscripciones) {
     }
 
     // B. Inscritos por Región (Provincias/Áreas)
-    const regionesList = ["Bocas del Toro", "Coclé", "Chiriquí", "Herrera", "Los Santos", "Veraguas"];
-    const regionCounts = regionesList.map(region => {
-        return inscripciones.filter(i => i.region === region).length;
+    const regionesList = ["IDP Bocas del Toro", "IDP Coclé", "IDP Chiriquí", "IDP Herrera", "IDP Los Santos", "IDP Veraguas"];
+    const regionCounts = regionesList.map(dist => {
+        return inscripciones.filter(i => i.distrito === dist).length;
     });
 
     if (chartInscritosPorRegion) {
@@ -879,7 +879,7 @@ function renderGráficosAdmin(eventos, inscripciones) {
             chartInscritosPorRegion = new Chart(ctx2.getContext("2d"), {
                 type: 'doughnut',
                 data: {
-                    labels: regionesList,
+                    labels: regionesList.map(r => r.replace("IDP ", "")),
                     datasets: [{
                         data: regionCounts,
                         backgroundColor: [
@@ -1183,7 +1183,7 @@ function renderTableInscripciones(inscripciones) {
         tr.innerHTML = `
             <td class="p-4 sm:p-5 font-bold text-white max-w-[130px] truncate">${ins.nombre} ${ins.apellidos}</td>
             <td class="p-4 sm:p-5 text-[11px] font-semibold text-slate-300 max-w-[140px] truncate">${eventoNombre}</td>
-            <td class="p-4 sm:p-5 text-[11px] text-slate-400 font-medium">${ins.region}</td>
+            <td class="p-4 sm:p-5 text-[11px] text-slate-400 font-medium">${ins.distrito}</td>
             <td class="p-4 sm:p-5 font-mono text-slate-300 text-[11px]">${ins.telefono}</td>
             <td class="p-4 sm:p-5 text-center text-slate-400 font-medium text-[11px]">${ins.tipoPago}</td>
             <td class="p-4 sm:p-5 text-center font-bold text-amber-400 font-mono text-[12px]">$${ins.montoAbonado.toFixed(2)}</td>
@@ -1222,7 +1222,7 @@ function filterInscripcionesAdmin() {
         const matchesSearch = fullname.includes(search) || 
                               ins.correo.toLowerCase().includes(search) || 
                               ins.telefono.includes(search) ||
-                              ins.region.toLowerCase().includes(search);
+                              ins.distrito.toLowerCase().includes(search);
         
         // Filtro Evento
         const matchesEvento = filterEv === "Todos" || ins.idEvento === filterEv;
