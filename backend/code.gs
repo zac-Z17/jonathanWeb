@@ -67,6 +67,14 @@ function obtenerOCrearEventosSheet() {
     sheet.appendRow(["ID", "Nombre", "Fecha", "Lugar", "Precio"]);
     sheet.getRange("A1:E1").setFontWeight("bold");
   }
+  
+  // Pre-polar los eventos estándar si la hoja está vacía (solo tiene cabecera)
+  if (sheet.getLastRow() === 1) {
+    sheet.appendRow(["EV-1", "Convención Regional 1", "2026-06-19", "Coclé", 50]);
+    sheet.appendRow(["EV-2", "Convocatoria Juvenil Regional", "2026-08-22", "Veraguas", 15]);
+    sheet.appendRow(["EV-3", "Convocatoria Regional en Los Santos", "2026-09-18", "Los Santos", 20]);
+    sheet.appendRow(["EV-4", "Misión Social en Bocas del Toro", "2026-10-09", "Bocas del Toro", 30]);
+  }
   return sheet;
 }
 
