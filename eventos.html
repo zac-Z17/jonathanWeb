@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción a Eventos - Región 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mjAzul: '#172172', // Institucional IDP
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/eventos.css">
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen antialiased overflow-x-hidden animated-bg">
+
+    <!-- Absolute background blur decorations -->
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full filter blur-[100px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-indigo-900/20 rounded-full filter blur-[100px] pointer-events-none"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 bg-slate-950/80 backdrop-blur-md text-white z-40 border-b border-slate-900 animate__animated animate__fadeInDown">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-11 h-11 bg-mjAzul rounded-xl flex items-center justify-center border border-slate-800 shadow-md shrink-0 transition-transform duration-500 group-hover:rotate-12">
+                    <span class="text-white font-black text-xl tracking-tighter">MJ</span>
+                </div>
+                <div>
+                    <span class="font-extrabold tracking-tight text-sm md:text-base block group-hover:text-blue-400 transition-colors">Juventud Región 1</span>
+                    <span class="text-[10px] text-amber-500 block font-semibold tracking-wider uppercase">Portal de Eventos</span>
+                </div>
+            </a>
+            
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a la Principal
+                </a>
+                
+                <button id="btn-toggle-admin" onclick="switchAdminSection(true)" class="bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-800 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md flex items-center gap-1.5">
+                    <i class="fa-solid fa-lock text-sm"></i> Acceso Administrativo
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow pt-28 pb-16 px-4 max-w-7xl mx-auto w-full z-10 relative">
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN DE VISTA PÚBLICA (PUBLIC AREA) -->
+        <!-- ========================================== -->
+        <div id="public-area" class="space-y-12">
+            <!-- Header Sección -->
+            <div class="text-center max-w-2xl mx-auto space-y-3 animate__animated animate__fadeIn">
+                <span class="inline-block bg-white/5 border border-amber-500/30 text-amber-500 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">
+                    Inscripción y Abonos
+                </span>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">Inscripciones para Eventos</h2>
+                <p class="text-slate-400 text-sm md:text-base">Inscríbete a los próximos eventos unificados de la región, realiza tus pagos y abonos secuenciales y sube tu comprobante.</p>
+            </div>
+
+            <!-- Identificación / Inicio Sesión Usuario -->
+            <div class="max-w-md mx-auto animate__animated animate__fadeInUp">
+                <!-- No identificado -->
+                <div id="user-login-section" class="glass-panel border border-slate-800/80 rounded-2xl p-6 shadow-2xl space-y-4">
+                    <div class="text-center space-y-1">
+                        <h3 class="font-bold text-white text-base">Identificación de Asistente</h3>
+                        <p class="text-slate-400 text-xs">Ingresa tus datos para registrarte o continuar abonando a eventos.</p>
+                    </div>
+                    <form onsubmit="identificarUsuario(event)" class="space-y-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Nombre Completo</label>
+                            <input type="text" id="user-input-name" required placeholder="Ej. Juan Pérez" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-mjAzul placeholder-slate-600 font-semibold transition-all">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Correo Electrónico</label>
+                            <input type="email" id="user-input-email" required placeholder="Ej. juan@gmail.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-mjAzul placeholder-slate-600 font-semibold transition-all">
+                        </div>
+                        <button type="submit" class="w-full bg-mjAzul hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition-all duration-300 hover:scale-102 active:scale-98 shadow-lg shadow-mjAzul/20 text-xs">
+                            Identificarse y Ver Eventos
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Identificado -->
+                <div id="user-identified-section" class="glass-panel border border-emerald-900/30 rounded-2xl p-4 shadow-xl flex items-center justify-between gap-4 hidden">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center justify-center text-emerald-400">
+                            <i class="fa-solid fa-user-check text-sm"></i>
+                        </div>
+                        <div class="truncate">
+                            <h4 id="user-display-name" class="font-bold text-white text-xs truncate">Juan Pérez</h4>
+                            <p id="user-display-email" class="text-slate-400 text-[10px] truncate">juan@gmail.com</p>
+                        </div>
+                    </div>
+                    <button onclick="desidentificarUsuario()" class="bg-slate-900 hover:bg-red-950/40 text-slate-400 hover:text-red-400 border border-slate-800 hover:border-red-950/40 px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all">
+                        Salir <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Listado de Eventos -->
+            <div id="public-events-container" class="opacity-50 pointer-events-none transition-all duration-500">
+                <div class="flex items-center justify-between border-b border-slate-900 pb-3 mb-6">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-blue-500"></i> Eventos Disponibles
+                    </h3>
+                    <div class="flex items-center gap-1.5">
+                        <span id="connection-indicator" class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span id="connection-text" class="text-[10px] font-bold text-emerald-400 tracking-wider uppercase">Conectado</span>
+                    </div>
+                </div>
+                
+                <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Event cards loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN DE ADMINISTRACIÓN (ADMIN AREA) -->
+        <!-- ========================================== -->
+        <div id="admin-area" class="space-y-8 hidden animate__animated animate__fadeIn">
+            
+            <!-- Login Administrador -->
+            <div id="admin-login-container" class="max-w-md mx-auto py-12">
+                <div class="glass-panel border border-slate-800 rounded-2xl p-6 shadow-2xl space-y-4">
+                    <div class="text-center space-y-1">
+                        <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-center text-amber-400 mx-auto mb-2">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-base">Acceso Administrativo de Eventos</h3>
+                        <p class="text-slate-400 text-xs">Ingrese credenciales de su región para administrar eventos.</p>
+                    </div>
+                    
+                    <form id="form-admin-login" class="space-y-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Usuario Administrador</label>
+                            <input type="text" id="admin-login-user" required placeholder="Ej. lider.cocle" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-mjAzul placeholder-slate-600 font-semibold transition-all">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Contraseña</label>
+                            <input type="password" id="admin-login-pass" required placeholder="••••••••••••" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-mjAzul placeholder-slate-600 font-semibold transition-all">
+                        </div>
+                        <div id="admin-login-error" class="bg-red-950/60 border border-red-800 text-red-300 text-[11px] font-bold p-3 rounded-xl hidden animate__animated animate__shakeX"></div>
+                        <button type="submit" id="btn-admin-login-submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-xl transition-all duration-300 hover:scale-102 active:scale-98 shadow-lg shadow-amber-500/25 text-xs">
+                            Verificar Credenciales
+                        </button>
+                    </form>
+                    
+                    <button onclick="switchAdminSection(false)" class="w-full bg-transparent hover:bg-slate-900 text-slate-400 border border-transparent hover:border-slate-800 py-2.5 rounded-xl transition-all text-xs font-bold">
+                        <i class="fa-solid fa-chevron-left text-[9px]"></i> Regresar a la Vista Pública
+                    </button>
+                </div>
+            </div>
+
+            <!-- Panel de Control Administrador (Admin Dashboard) -->
+            <div id="admin-dashboard-container" class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start hidden">
+                <!-- Sidebar Control Panel -->
+                <div class="glass-panel border border-slate-800 rounded-2xl p-4 space-y-6 lg:sticky lg:top-24 shadow-xl">
+                    <div class="flex items-center gap-3 border-b border-slate-900 pb-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                            <i class="fa-solid fa-user-gear text-base"></i>
+                        </div>
+                        <div class="truncate">
+                            <span id="admin-nav-user" class="font-extrabold text-white text-xs block truncate">admin.general</span>
+                            <span class="text-[9px] text-emerald-400 font-bold tracking-widest uppercase block">Sesión Activa</span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-1.5">
+                        <button id="admin-tab-btn-resumen" onclick="switchAdminTab('resumen')" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all bg-mjAzul text-white shadow-lg shadow-mjAzul/15">
+                            <i class="fa-solid fa-chart-pie text-sm"></i> Resumen de Eventos
+                        </button>
+                        <button id="admin-tab-btn-eventos" onclick="switchAdminTab('eventos')" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-900 hover:text-slate-200 transition-all">
+                            <i class="fa-solid fa-calendar-days text-sm"></i> Eventos Oficiales
+                        </button>
+                        <button id="admin-tab-btn-inscripciones" onclick="switchAdminTab('inscripciones')" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold text-slate-400 hover:bg-slate-900 hover:text-slate-200 transition-all">
+                            <i class="fa-solid fa-file-invoice-dollar text-sm"></i> Inscripciones
+                        </button>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-900 flex flex-col gap-2">
+                        <button onclick="switchAdminSection(false)" class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800/80 px-4 py-2.5 rounded-xl text-xs font-bold transition-all">
+                            <i class="fa-solid fa-house text-[10px]"></i> Vista Pública
+                        </button>
+                        <button onclick="adminLogout()" class="w-full flex items-center justify-center gap-2 bg-red-950/20 hover:bg-red-950/50 text-red-400 border border-red-900/30 px-4 py-2.5 rounded-xl text-xs font-bold transition-all">
+                            <i class="fa-solid fa-right-from-bracket text-[10px]"></i> Cerrar Sesión Admin
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Main Admin Content Area -->
+                <div class="lg:col-span-3 space-y-6">
+                    <!-- Header Dinámico -->
+                    <div class="border-b border-slate-900 pb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div>
+                            <h2 id="admin-page-title" class="text-2xl font-black text-white">Resumen de Eventos</h2>
+                            <p id="admin-page-subtitle" class="text-xs text-slate-400">Estadísticas y análisis visual de inscritos, pagos y cobertura por provincia</p>
+                        </div>
+                    </div>
+
+                    <!-- TAB CONTENT: RESUMEN -->
+                    <div id="admin-tab-content-resumen" class="space-y-6">
+                        <!-- Mini Tarjetas Métricas -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="glass-panel border border-slate-800 rounded-2xl p-5 shadow-lg flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
+                                    <i class="fa-solid fa-calendar-plus text-xl"></i>
+                                </div>
+                                <div>
+                                    <span id="admin-stat-eventos" class="block text-2xl font-black text-white font-mono leading-none">0</span>
+                                    <span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider block mt-1">Total Eventos</span>
+                                </div>
+                            </div>
+                            <div class="glass-panel border border-slate-800 rounded-2xl p-5 shadow-lg flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-600/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+                                    <i class="fa-solid fa-users text-xl"></i>
+                                </div>
+                                <div>
+                                    <span id="admin-stat-inscritos" class="block text-2xl font-black text-white font-mono leading-none">0</span>
+                                    <span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider block mt-1">Inscritos Activos</span>
+                                </div>
+                            </div>
+                            <div class="glass-panel border border-slate-800 rounded-2xl p-5 shadow-lg flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-600/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
+                                    <i class="fa-solid fa-sack-dollar text-xl"></i>
+                                </div>
+                                <div>
+                                    <span id="admin-stat-recaudado" class="block text-2xl font-black text-amber-400 font-mono leading-none">$0.00</span>
+                                    <span class="text-[9px] font-bold text-slate-500 uppercase tracking-wider block mt-1">Total Recaudado</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gráficos -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="glass-panel border border-slate-800 rounded-2xl p-5 shadow-lg flex flex-col">
+                                <h4 class="font-bold text-white text-xs uppercase tracking-wider text-slate-300 border-b border-slate-900 pb-3 mb-4">Inscritos por Evento</h4>
+                                <div class="h-64 relative flex-grow">
+                                    <canvas id="chart-inscritos-evento"></canvas>
+                                </div>
+                            </div>
+                            <div class="glass-panel border border-slate-800 rounded-2xl p-5 shadow-lg flex flex-col">
+                                <h4 class="font-bold text-white text-xs uppercase tracking-wider text-slate-300 border-b border-slate-900 pb-3 mb-4">Inscritos por Región</h4>
+                                <div class="h-64 relative flex-grow">
+                                    <canvas id="chart-inscritos-region"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB CONTENT: EVENTOS -->
+                    <div id="admin-tab-content-eventos" class="space-y-4 hidden">
+                        <div class="flex justify-between items-center pb-2">
+                            <h3 class="text-sm font-bold text-slate-300 flex items-center gap-1.5"><i class="fa-solid fa-list-check"></i> Listado de Eventos</h3>
+                            <button onclick="openAddEventoModal()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 transition-all shadow-md">
+                                <i class="fa-solid fa-plus"></i> Crear Nuevo Evento
+                            </button>
+                        </div>
+
+                        <div class="glass-panel border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border-collapse">
+                                    <thead>
+                                        <tr class="bg-slate-900 text-slate-400 font-bold uppercase border-b border-slate-800">
+                                            <th class="p-4 sm:p-5">Nombre del Evento</th>
+                                            <th class="p-4 sm:p-5">Fecha</th>
+                                            <th class="p-4 sm:p-5">Lugar</th>
+                                            <th class="p-4 sm:p-5">Precio</th>
+                                            <th class="p-4 sm:p-5 text-center">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-eventos-body">
+                                        <!-- Dynamic records -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB CONTENT: INSCRIPCIONES -->
+                    <div id="admin-tab-content-inscripciones" class="space-y-4 hidden">
+                        <!-- Filtros del Panel de Inscripciones -->
+                        <div class="glass-panel border border-slate-800 rounded-2xl p-4 shadow-lg grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="relative">
+                                <i class="fa-solid fa-magnifying-glass text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2 text-xs"></i>
+                                <input type="text" id="admin-search-input" onkeyup="filterInscripcionesAdmin()" placeholder="Buscar por nombre, correo..." class="w-full bg-slate-900 border border-slate-800/80 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-slate-500 font-medium focus:outline-none focus:border-mjAzul transition-all">
+                            </div>
+                            <div>
+                                <select id="admin-filter-evento" onchange="filterInscripcionesAdmin()" class="w-full bg-slate-900 border border-slate-800/80 rounded-xl px-4 py-2.5 text-xs text-white font-medium focus:outline-none focus:border-mjAzul transition-all">
+                                    <option value="Todos">Todos los Eventos</option>
+                                    <!-- Loaded dynamic options -->
+                                </select>
+                            </div>
+                            <div>
+                                <select id="admin-filter-estado" onchange="filterInscripcionesAdmin()" class="w-full bg-slate-900 border border-slate-800/80 rounded-xl px-4 py-2.5 text-xs text-white font-medium focus:outline-none focus:border-mjAzul transition-all">
+                                    <option value="Todos">Todos los Estados</option>
+                                    <option value="Pendiente">Pendiente</option>
+                                    <option value="Abono">Abono</option>
+                                    <option value="Completado">Completado</option>
+                                    <option value="Inactivo">Inactivos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Tabla de Inscripciones -->
+                        <div class="glass-panel border border-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border-collapse">
+                                    <thead>
+                                        <tr class="bg-slate-900 text-slate-400 font-bold uppercase border-b border-slate-800">
+                                            <th class="p-4 sm:p-5">Nombre Asistente</th>
+                                            <th class="p-4 sm:p-5">Evento</th>
+                                            <th class="p-4 sm:p-5">Región</th>
+                                            <th class="p-4 sm:p-5">Teléfono</th>
+                                            <th class="p-4 sm:p-5 text-center">Tipo</th>
+                                            <th class="p-4 sm:p-5 text-center">Monto</th>
+                                            <th class="p-4 sm:p-5 text-center">Comprobante</th>
+                                            <th class="p-4 sm:p-5 text-center">Estado</th>
+                                            <th class="p-4 sm:p-5 text-center">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-inscripciones-body">
+                                        <!-- Dynamic records -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto bg-slate-950 text-slate-500 text-xs px-6 border-t border-slate-900 text-center py-10 space-y-3 z-10 relative">
+        <p class="max-w-md mx-auto text-[11px] leading-relaxed">
+            Las inscripciones de este portal se procesan de forma inmediata en las bases de datos regionales para asegurar tu cupo de forma transparente.
+        </p>
+        <div class="h-px bg-slate-900 max-w-xs mx-auto"></div>
+        <div class="flex justify-center items-center gap-2 text-[11px]">
+            <div class="w-5 h-5 bg-blue-600 rounded flex items-center justify-center filter grayscale opacity-40">
+                <span class="text-white font-black text-[9px] tracking-tighter">MJ</span>
+            </div>
+            <span>© 2026 Secretaría Regional de la Juventud - Región 1.</span>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATIONS CONTAINER -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-3 max-w-md pointer-events-none"></div>
+
+
+    <!-- ========================================== -->
+    <!-- MODALES / VENTANAS EMERGENTES (MODALS) -->
+    <!-- ========================================== -->
+
+    <!-- A. MODAL FORMULARIO INSCRIPCIÓN PÚBLICA -->
+    <div id="modal-inscripcion" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-panel border border-slate-800 rounded-2xl w-full max-w-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate__animated animate__zoomIn animate__faster">
+            <!-- Modal Header -->
+            <div class="p-5 border-b border-slate-900 flex justify-between items-center shrink-0">
+                <div>
+                    <h3 id="modal-ins-titulo" class="font-extrabold text-white text-base">Inscripción a Evento</h3>
+                    <p class="text-[11px] text-slate-400">Complete su información personal y suba su recibo de pago</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-[9px] font-bold text-slate-500 block uppercase tracking-wider">Costo Evento</span>
+                    <span id="modal-ins-costo" class="text-lg font-black text-amber-400 font-mono">$0.00</span>
+                </div>
+            </div>
+
+            <!-- Modal Content Form -->
+            <form id="form-inscripcion-evento" class="overflow-y-auto p-6 space-y-5 flex-grow">
+                
+                <!-- Banner Abonos Previos -->
+                <div id="abono-previo-banner" class="bg-amber-950/50 border border-amber-800/50 text-amber-300 text-xs p-4 rounded-xl flex items-start gap-3 hidden">
+                    <span class="text-lg">🔔</span>
+                    <span id="abono-previo-detalle" class="leading-relaxed font-medium"></span>
+                </div>
+
+                <!-- Bloque 1: Datos Identificativos -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Nombre(s)</label>
+                        <input type="text" id="ins-nombre" required readonly class="w-full bg-slate-900/60 border border-slate-800 text-slate-400 rounded-xl px-4 py-2.5 text-xs focus:outline-none font-semibold">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Apellidos</label>
+                        <input type="text" id="ins-apellidos" required placeholder="Ej. Gómez Torres" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Correo Electrónico</label>
+                        <input type="email" id="ins-correo" required readonly class="w-full bg-slate-900/60 border border-slate-800 text-slate-400 rounded-xl px-4 py-2.5 text-xs focus:outline-none font-semibold">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Teléfono / WhatsApp</label>
+                        <input type="text" id="ins-telefono" required placeholder="Ej. 6655-4433" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                    </div>
+                </div>
+
+                <!-- Bloque 2: Datos Eclesiales/Geográficos -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Región</label>
+                        <select id="ins-region" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
+                            <option value="Bocas del Toro">Bocas del Toro</option>
+                            <option value="Coclé">Coclé</option>
+                            <option value="Chiriquí">Chiriquí</option>
+                            <option value="Herrera">Herrera</option>
+                            <option value="Los Santos">Los Santos</option>
+                            <option value="Veraguas">Veraguas</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Distrito</label>
+                        <input type="text" id="ins-distrito" required placeholder="Ej. Penonomé" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Iglesia Local</label>
+                        <select id="ins-iglesia" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
+                            <option value="IDP Bocas del Toro">IDP Bocas del Toro</option>
+                            <option value="IDP Coclé">IDP Coclé</option>
+                            <option value="IDP Chiriquí">IDP Chiriquí</option>
+                            <option value="IDP Herrera">IDP Herrera</option>
+                            <option value="IDP Los Santos">IDP Los Santos</option>
+                            <option value="IDP Veraguas">IDP Veraguas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Bloque 3: Datos de Pago y Recibo -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-900 pt-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Tipo de Inscripción</label>
+                        <select id="ins-tipo-pago" onchange="cambiarTipoPago()" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
+                            <!-- Options loaded dynamically based on abonos -->
+                        </select>
+                    </div>
+                    <div class="space-y-1.5 sm:col-span-2">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Monto a Registrar ($)</label>
+                        <input type="number" step="0.01" id="ins-monto" required placeholder="0.00" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-mono font-bold transition-all">
+                    </div>
+                </div>
+
+                <div class="space-y-2 border-t border-slate-900 pt-4">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Foto del Comprobante (Obligatorio)</label>
+                    <div class="relative flex items-center justify-center bg-slate-900 border border-dashed border-slate-800 rounded-xl p-4 transition-all hover:border-mjAzul/40 cursor-pointer">
+                        <input type="file" id="ins-comprobante" accept="image/png, image/jpeg, image/jpg" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10">
+                        <div class="text-center space-y-1 pointer-events-none">
+                            <i class="fa-solid fa-cloud-arrow-up text-blue-500 text-xl block"></i>
+                            <span class="text-[11px] font-bold text-slate-300 block">Subir foto (.png, .jpg, .jpeg)</span>
+                            <span class="text-[9px] text-slate-500 block">Tamaño recomendado < 4MB</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Preview Image -->
+                    <div id="comprobante-preview-container" class="hidden flex justify-center mt-3 bg-slate-900/40 border border-slate-850 rounded-xl p-3 relative">
+                        <img id="comprobante-preview" src="#" alt="Vista previa del comprobante" class="max-h-48 rounded-lg object-contain shadow-md">
+                    </div>
+                </div>
+
+                <!-- Modal Footer buttons -->
+                <div class="pt-4 border-t border-slate-900 flex flex-col sm:flex-row gap-3 shrink-0">
+                    <button type="submit" id="btn-ins-submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 rounded-xl transition-all text-xs shadow-md shadow-emerald-500/10">
+                        Subir Inscripción
+                    </button>
+                    <button type="button" onclick="cerrarFormularioInscripcion()" class="w-full bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700 py-3 rounded-xl transition-all text-xs font-bold">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- B. MODAL CREACIÓN/EDICIÓN EVENTO (ADMIN) -->
+    <div id="modal-evento" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-panel border border-slate-800 rounded-2xl w-full max-w-md shadow-2xl animate__animated animate__zoomIn animate__faster">
+            <div class="p-5 border-b border-slate-900 flex justify-between items-center">
+                <h3 id="modal-evento-titulo" class="font-extrabold text-white text-base">Crear Nuevo Evento</h3>
+                <button onclick="cerrarEventoModal()" class="text-slate-500 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+            </div>
+            
+            <form id="form-evento" class="p-6 space-y-4">
+                <input type="hidden" id="evento-id">
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Nombre del Evento</label>
+                    <input type="text" id="evento-nombre" required placeholder="Ej. Convención Nacional" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Fecha de Realización</label>
+                    <input type="date" id="evento-fecha" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Lugar / Ubicación</label>
+                    <input type="text" id="evento-lugar" required placeholder="Ej. Gimnasio Penonomé" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Precio de Inscripción ($)</label>
+                    <input type="number" step="0.01" id="evento-precio" required placeholder="0.00" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-mono font-bold transition-all">
+                </div>
+                
+                <div class="pt-4 border-t border-slate-900 flex gap-3">
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-2.5 rounded-xl transition-all text-xs shadow-md shadow-amber-500/20">
+                        Guardar Evento
+                    </button>
+                    <button type="button" onclick="cerrarEventoModal()" class="w-full bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700 py-2.5 rounded-xl transition-all text-xs font-bold">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- C. MODAL DE CONFIRMACIÓN: ELIMINAR EVENTO (ADMIN) -->
+    <div id="modal-delete-evento" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-panel border border-slate-800 rounded-2xl w-full max-w-sm shadow-2xl p-6 space-y-5 text-center animate__animated animate__zoomIn animate__faster">
+            <div class="w-12 h-12 bg-red-650/15 border border-red-900/40 rounded-xl flex items-center justify-center text-red-500 mx-auto">
+                <i class="fa-solid fa-triangle-exclamation text-2xl animate-bounce"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-white font-extrabold text-base">¿Eliminar evento permanentemente?</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Esta acción es irreversible. Se eliminará el evento <strong id="delete-evento-nombre" class="text-white"></strong> y **todas las inscripciones y abonos asociados** en cascada de Google Sheets.
+                </p>
+            </div>
+            <input type="hidden" id="delete-evento-id">
+            <div class="flex gap-3">
+                <button onclick="confirmarEliminarEvento()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-lg shadow-red-600/10 transition-all">
+                    Sí, Eliminar Todo
+                </button>
+                <button onclick="cerrarDeleteEventoModal()" class="w-full bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-white border border-slate-800 py-2.5 rounded-xl text-xs font-bold transition-all">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- D. MODAL DE EDICIÓN: DETALLES DE INSCRIPCIÓN (ADMIN) -->
+    <div id="modal-edit-inscripcion" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-panel border border-slate-800 rounded-2xl w-full max-w-xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate__animated animate__zoomIn animate__faster">
+            <div class="p-5 border-b border-slate-900 flex justify-between items-center">
+                <h3 class="font-extrabold text-white text-base">Editar Detalles de Inscripción</h3>
+                <button onclick="cerrarEditInscripcionModal()" class="text-slate-500 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+            </div>
+            
+            <form id="form-edit-inscripcion" class="overflow-y-auto p-6 space-y-4 flex-grow">
+                <input type="hidden" id="admin-ins-id">
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Nombre</label>
+                        <input type="text" id="admin-ins-nombre" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Apellidos</label>
+                        <input type="text" id="admin-ins-apellidos" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Correo</label>
+                        <input type="email" id="admin-ins-correo" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Teléfono</label>
+                        <input type="text" id="admin-ins-telefono" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Región</label>
+                        <select id="admin-ins-region" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul transition-all">
+                            <option value="Bocas del Toro">Bocas del Toro</option>
+                            <option value="Coclé">Coclé</option>
+                            <option value="Chiriquí">Chiriquí</option>
+                            <option value="Herrera">Herrera</option>
+                            <option value="Los Santos">Los Santos</option>
+                            <option value="Veraguas">Veraguas</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Distrito</label>
+                        <input type="text" id="admin-ins-distrito" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Iglesia</label>
+                        <select id="admin-ins-iglesia" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul transition-all">
+                            <option value="IDP Bocas del Toro">IDP Bocas del Toro</option>
+                            <option value="IDP Coclé">IDP Coclé</option>
+                            <option value="IDP Chiriquí">IDP Chiriquí</option>
+                            <option value="IDP Herrera">IDP Herrera</option>
+                            <option value="IDP Los Santos">IDP Los Santos</option>
+                            <option value="IDP Veraguas">IDP Veraguas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 border-t border-slate-900 pt-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Evento Asociado</label>
+                        <select id="admin-ins-evento" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul transition-all">
+                            <!-- Loaded dynamic events -->
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Tipo Pago</label>
+                        <select id="admin-ins-tipo-pago" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul transition-all">
+                            <option value="Abono">Abono</option>
+                            <option value="Completo">Completo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Monto Abonado ($)</label>
+                        <input type="number" step="0.01" id="admin-ins-monto" required class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-mono transition-all">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase block">Estado Factura</label>
+                        <select id="admin-ins-estado" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul transition-all">
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Abono">Abono</option>
+                            <option value="Completado">Completado</option>
+                            <option value="Inactivo">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-900 flex gap-3 shrink-0">
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-2.5 rounded-xl text-xs transition-all shadow-md">
+                        Guardar Cambios
+                    </button>
+                    <button type="button" onclick="cerrarEditInscripcionModal()" class="w-full bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-white border border-slate-800 py-2.5 rounded-xl text-xs font-bold transition-all">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- E. MODAL DE CONFIRMACIÓN: ELIMINAR INSCRIPCIÓN INDIVIDUAL (ADMIN) -->
+    <div id="modal-delete-inscripcion" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="glass-panel border border-slate-800 rounded-2xl w-full max-w-sm shadow-2xl p-6 space-y-5 text-center animate__animated animate__zoomIn animate__faster">
+            <div class="w-12 h-12 bg-red-650/15 border border-red-900/40 rounded-xl flex items-center justify-center text-red-500 mx-auto">
+                <i class="fa-solid fa-trash text-2xl animate-pulse"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-white font-extrabold text-base">¿Eliminar inscripción?</h3>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Esta acción es irreversible y eliminará físicamente el registro de la persona <strong id="delete-ins-nombre" class="text-white"></strong> de Google Sheets.
+                </p>
+            </div>
+            <input type="hidden" id="delete-ins-id">
+            <div class="flex gap-3">
+                <button onclick="confirmarEliminarInscripcion()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 rounded-xl text-xs transition-all shadow-md">
+                    Eliminar Registro
+                </button>
+                <button onclick="cerrarDeleteInscripcionModal()" class="w-full bg-slate-900 hover:bg-slate-850 text-slate-400 hover:text-white border border-slate-800 py-2.5 rounded-xl text-xs font-bold transition-all">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ChartJS, AOS and JS logic -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/eventos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+    </script>
+</body>
+</html>
