@@ -77,9 +77,15 @@
                         <p class="text-slate-400 text-xs">Ingresa tus datos para registrarte o continuar abonando a eventos.</p>
                     </div>
                     <form onsubmit="identificarUsuario(event)" class="space-y-4">
-                        <div class="space-y-1.5">
-                            <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Nombre Completo</label>
-                            <input type="text" id="user-input-name" required placeholder="Ej. Juan Pérez" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-mjAzul placeholder-slate-600 font-semibold transition-all">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Nombre(s)</label>
+                                <input type="text" id="user-input-name" required placeholder="Ej. Juan" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-mjAzul placeholder-slate-600 font-semibold transition-all">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Apellidos</label>
+                                <input type="text" id="user-input-lastname" required placeholder="Ej. Pérez Gómez" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-mjAzul placeholder-slate-600 font-semibold transition-all">
+                            </div>
                         </div>
                         <div class="space-y-1.5">
                             <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Correo Electrónico</label>
@@ -399,7 +405,7 @@
                     </div>
                     <div class="space-y-1.5">
                         <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Apellidos</label>
-                        <input type="text" id="ins-apellidos" required placeholder="Ej. Gómez Torres" class="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                        <input type="text" id="ins-apellidos" required readonly class="w-full bg-slate-900/60 border border-slate-800 text-slate-400 rounded-xl px-4 py-2.5 text-xs focus:outline-none font-semibold">
                     </div>
                 </div>
 

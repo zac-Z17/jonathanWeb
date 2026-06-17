@@ -92,7 +92,7 @@ function actualizarSesionUsuarioUI() {
     if (usuarioIdentificado) {
         identifiedSection.classList.remove("hidden");
         loginSection.classList.add("hidden");
-        userNameEl.textContent = usuarioIdentificado.nombre;
+        userNameEl.textContent = usuarioIdentificado.nombre + " " + (usuarioIdentificado.apellidos || "");
         userEmailEl.textContent = usuarioIdentificado.correo;
         publicContainer.classList.remove("opacity-50", "pointer-events-none");
     } else {
@@ -105,16 +105,17 @@ function actualizarSesionUsuarioUI() {
 function identificarUsuario(e) {
     e.preventDefault();
     const nombre = document.getElementById("user-input-name").value.trim();
+    const apellidos = document.getElementById("user-input-lastname").value.trim();
     const correo = document.getElementById("user-input-email").value.trim().toLowerCase();
 
-    if (!nombre || !correo) {
+    if (!nombre || !apellidos || !correo) {
         showToast("Por favor complete todos los campos.", "error");
         return;
     }
 
-    usuarioIdentificado = { nombre, correo };
+    usuarioIdentificado = { nombre, apellidos, correo };
     localStorage.setItem("usuario_identificado", JSON.stringify(usuarioIdentificado));
-    showToast(`Bienvenido(a), ${nombre}`, "success");
+    showToast(`Bienvenido(a), ${nombre} ${apellidos}`, "success");
     actualizarSesionUsuarioUI();
     cargarEventosYHistorial();
 }
@@ -351,6 +352,7 @@ function abrirFormularioInscripcion(eventoId) {
 
     // Rellenar datos por defecto del usuario
     document.getElementById("ins-nombre").value = usuarioIdentificado.nombre;
+    document.getElementById("ins-apellidos").value = usuarioIdentificado.apellidos || "";
     document.getElementById("ins-correo").value = usuarioIdentificado.correo;
 
     // Calcular abonos acumulados
@@ -377,7 +379,6 @@ function abrirFormularioInscripcion(eventoId) {
 
     // Limpiar valores anteriores del formulario
     inputMonto.value = "";
-    document.getElementById("ins-apellidos").value = "";
     document.getElementById("ins-telefono").value = "";
     document.getElementById("ins-comprobante").value = "";
     document.getElementById("comprobante-preview-container").classList.add("hidden");
@@ -1233,7 +1234,7 @@ function filterInscripcionesAdmin() {
         return matchesSearch && matchesEvento && matchesEstado;
     });
 
-    renderTableInscripciones(filtrados);
+    renderTableInscripciones(filtradas);
 }
 
 // Activar o Inactivar Inscripción (afecta el conteo general y abono acumulado)
@@ -1476,6 +1477,11 @@ function eliminarInscripcionLocal(id) {
 // INICIALIZACIÓN Y CARGA DE DOCUMENTO
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
+    // Si la sesión guardada no contiene apellidos, se limpia para forzar la re-identificación
+    if (usuarioIdentificado && !usuarioIdentificado.apellidos) {
+        usuarioIdentificado = null;
+        localStorage.removeItem("usuario_identificado");
+    }
     actualizarSesionUsuarioUI();
     cargarEventosYHistorial();
 });
