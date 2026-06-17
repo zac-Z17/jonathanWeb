@@ -1,5 +1,5 @@
 // --- CONFIGURACIÓN GENERAL ---
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyaPNotvFGHkcRgypc42tsd0HWLgapb9zTwoeULRtp_DUhWJ1CXK4mr--NIcsRGmnJt/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz_7p41yoH9_a2J2HRC8DoD75MUmw49EuCwxGv6UTrDAIy71mVBwoq3aMhzTbQ5M6DS/exec";
 
 // Credenciales de respaldo local para simulación fuera de línea
 const CREDENCIALES_LOCALES = {
