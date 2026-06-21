@@ -19,7 +19,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="css/eventos.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen antialiased overflow-x-hidden animated-bg">
 
@@ -41,10 +41,6 @@
             </a>
             
             <div class="flex items-center gap-4">
-                <a href="index.html" class="hidden md:inline-flex items-center gap-1.5 text-xs font-bold text-slate-300 hover:text-white transition-colors">
-                    <i class="fa-solid fa-arrow-left"></i> Volver a la Principal
-                </a>
-                
                 <button id="btn-toggle-admin" onclick="switchAdminSection(true)" class="bg-slate-900 hover:bg-slate-800 text-amber-400 border border-slate-800 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 hover:scale-105 active:scale-95 shadow-md flex items-center gap-1.5">
                     <i class="fa-solid fa-lock text-sm"></i> Acceso Administrativo
                 </button>
@@ -674,7 +670,7 @@
     <!-- ChartJS, AOS and JS logic -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/eventos.js"></script>
+    <script src="js/main.js"></script>
     <script>
         AOS.init({
             duration: 800,
