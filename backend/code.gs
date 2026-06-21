@@ -64,16 +64,21 @@ function obtenerOCrearEventosSheet() {
   let sheet = ss.getSheetByName("Eventos");
   if (!sheet) {
     sheet = ss.insertSheet("Eventos");
-    sheet.appendRow(["ID", "Nombre", "Fecha", "Lugar", "Precio"]);
-    sheet.getRange("A1:E1").setFontWeight("bold");
+    sheet.appendRow(["ID", "Nombre", "Fecha", "Lugar", "Precio", "Campos Config"]);
+    sheet.getRange("A1:F1").setFontWeight("bold");
+  } else {
+    const lastCol = sheet.getLastColumn();
+    if (lastCol === 5) {
+      sheet.getRange(1, 6).setValue("Campos Config").setFontWeight("bold");
+    }
   }
   
   // Pre-polar los eventos estándar si la hoja está vacía (solo tiene cabecera)
   if (sheet.getLastRow() === 1) {
-    sheet.appendRow(["EV-1", "Convención Regional 1", "2026-06-19", "Coclé", 50]);
-    sheet.appendRow(["EV-2", "Convocatoria Juvenil Regional", "2026-08-22", "Veraguas", 15]);
-    sheet.appendRow(["EV-3", "Convocatoria Regional en Los Santos", "2026-09-18", "Los Santos", 20]);
-    sheet.appendRow(["EV-4", "Misión Social en Bocas del Toro", "2026-10-09", "Bocas del Toro", 30]);
+    sheet.appendRow(["EV-1", "Convención Regional 1", "2026-06-19", "Coclé", 50, "{}"]);
+    sheet.appendRow(["EV-2", "Convocatoria Juvenil Regional", "2026-08-22", "Veraguas", 15, "{}"]);
+    sheet.appendRow(["EV-3", "Convocatoria Regional en Los Santos", "2026-09-18", "Los Santos", 20, "{}"]);
+    sheet.appendRow(["EV-4", "Misión Social en Bocas del Toro", "2026-10-09", "Bocas del Toro", 30, "{}"]);
   }
   return sheet;
 }
@@ -100,9 +105,25 @@ function obtenerOCrearInscripcionesSheet() {
       "Monto Abonado", 
       "URL Comprobante", 
       "Estado Factura",
-      "Fecha Registro"
+      "Fecha Registro",
+      "Edad",
+      "Rol (Pastor/Miembro)",
+      "Alergias",
+      "Detalle Alergias",
+      "Talla Camiseta",
+      "Campos Personalizados"
     ]);
-    sheet.getRange("A1:N1").setFontWeight("bold");
+    sheet.getRange("A1:T1").setFontWeight("bold");
+  } else {
+    const lastCol = sheet.getLastColumn();
+    if (lastCol === 14) {
+      sheet.getRange(1, 15).setValue("Edad").setFontWeight("bold");
+      sheet.getRange(1, 16).setValue("Rol (Pastor/Miembro)").setFontWeight("bold");
+      sheet.getRange(1, 17).setValue("Alergias").setFontWeight("bold");
+      sheet.getRange(1, 18).setValue("Detalle Alergias").setFontWeight("bold");
+      sheet.getRange(1, 19).setValue("Talla Camiseta").setFontWeight("bold");
+      sheet.getRange(1, 20).setValue("Campos Personalizados").setFontWeight("bold");
+    }
   }
   return sheet;
 }
@@ -206,7 +227,8 @@ function obtenerTodosLosEventos(sheet) {
       nombre: row[1],
       fecha: row[2],
       lugar: row[3],
-      precio: Number(row[4])
+      precio: Number(row[4]),
+      camposConfig: row[5] || "{}"
     };
   });
 }
@@ -232,7 +254,13 @@ function obtenerTodasLasInscripciones(sheet) {
       montoAbonado: Number(row[10]),
       urlComprobante: row[11],
       estadoFactura: row[12],
-      fechaRegistro: row[13]
+      fechaRegistro: row[13],
+      edad: row[14] || "",
+      rol: row[15] || "",
+      alergias: row[16] || "",
+      alergiasDetalle: row[17] || "",
+      tallaCamiseta: row[18] || "",
+      camposPersonalizados: row[19] || "{}"
     };
   });
 }
@@ -334,7 +362,13 @@ function doPost(e) {
         nuevoMonto,
         urlComprobante,
         "Pendiente", // Comienza como pendiente de revisión
-        new Date().toISOString()
+        new Date().toISOString(),
+        datos.edad || "",
+        datos.rol || "",
+        datos.alergias || "",
+        datos.alergiasDetalle || "",
+        datos.tallaCamiseta || "",
+        datos.camposPersonalizados || "{}"
       ]);
 
       return ContentService.createTextOutput(JSON.stringify({ 
@@ -426,6 +460,7 @@ function doPost(e) {
     if (accion === "guardarEvento") {
       const id = datos.id || ("EV-" + Date.now() + "-" + Math.floor(Math.random() * 100));
       const fila = buscarFilaPorID(evSheet, id, 0);
+      const camposConfig = datos.camposConfig || "{}";
       
       if (fila === -1) {
         // Crear
@@ -434,7 +469,8 @@ function doPost(e) {
           datos.nombre,
           datos.fecha,
           datos.lugar,
-          Number(datos.precio)
+          Number(datos.precio),
+          camposConfig
         ]);
       } else {
         // Editar
@@ -442,6 +478,7 @@ function doPost(e) {
         evSheet.getRange(fila, 3).setValue(datos.fecha);
         evSheet.getRange(fila, 4).setValue(datos.lugar);
         evSheet.getRange(fila, 5).setValue(Number(datos.precio));
+        evSheet.getRange(fila, 6).setValue(camposConfig);
       }
 
       return ContentService.createTextOutput(JSON.stringify({
@@ -495,6 +532,14 @@ function doPost(e) {
       insSheet.getRange(fila, 10).setValue(datos.tipoPago);
       insSheet.getRange(fila, 11).setValue(Number(datos.montoAbonado));
       insSheet.getRange(fila, 13).setValue(datos.estadoFactura); // Pendiente, Abono, Completado
+      
+      // Nuevos campos dinámicos
+      insSheet.getRange(fila, 15).setValue(datos.edad || "");
+      insSheet.getRange(fila, 16).setValue(datos.rol || "");
+      insSheet.getRange(fila, 17).setValue(datos.alergias || "");
+      insSheet.getRange(fila, 18).setValue(datos.alergiasDetalle || "");
+      insSheet.getRange(fila, 19).setValue(datos.tallaCamiseta || "");
+      insSheet.getRange(fila, 20).setValue(datos.camposPersonalizados || "{}");
 
       return ContentService.createTextOutput(JSON.stringify({
         "status": "success",

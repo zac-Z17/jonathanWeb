@@ -334,6 +334,163 @@ function renderEventosPublicos(eventos) {
 // ==========================================
 let eventoSeleccionadoId = "";
 
+// --- SISTEMA DE FORMULARIO DINÁMICO Y PERSONALIZADO ---
+let customFieldsConfigList = [];
+
+function renderCustomFieldsConfigUI() {
+    const container = document.getElementById("evt-cfg-custom-container");
+    if (!container) return;
+    container.innerHTML = "";
+    
+    if (customFieldsConfigList.length === 0) {
+        container.innerHTML = `<span class="text-[10px] text-slate-500 italic block">Ningún campo personalizado extra.</span>`;
+        return;
+    }
+    
+    customFieldsConfigList.forEach((field, index) => {
+        container.innerHTML += `
+            <div class="flex items-center justify-between bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 text-xs mt-1.5">
+                <span class="text-slate-300 font-medium">${field.label} (${field.type === "number" ? "Número" : "Texto"})</span>
+                <button type="button" onclick="eliminarCampoPersonalizadoConfig(${index})" class="text-red-400 hover:text-red-500"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        `;
+    });
+}
+
+function agregarCampoPersonalizadoConfig() {
+    const labelInput = document.getElementById("evt-cfg-custom-label");
+    const typeSelect = document.getElementById("evt-cfg-custom-type");
+    
+    const label = labelInput.value.trim();
+    const type = typeSelect.value;
+    
+    if (!label) {
+        showToast("Escribe un nombre para el campo personalizado.", "error");
+        return;
+    }
+    
+    const id = "c_" + Date.now() + "_" + Math.floor(Math.random() * 100);
+    customFieldsConfigList.push({ id, label, type });
+    labelInput.value = "";
+    renderCustomFieldsConfigUI();
+}
+
+function eliminarCampoPersonalizadoConfig(index) {
+    customFieldsConfigList.splice(index, 1);
+    renderCustomFieldsConfigUI();
+}
+
+function renderDynamicFormFields(camposConfigStr, containerId, prefix = "ins-") {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = "";
+    
+    let config = {};
+    try {
+        config = typeof camposConfigStr === "string" ? JSON.parse(camposConfigStr) : (camposConfigStr || {});
+    } catch(e) {
+        console.error("Error al parsear config de campos:", e);
+    }
+    
+    let hasFields = false;
+    
+    if (config.edad) {
+        hasFields = true;
+        container.innerHTML += `
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Edad</label>
+                <input type="number" id="${prefix}dynamic-edad" required placeholder="Ej. 18" min="1" max="120" class="w-full bg-slate-900 border border-slate-855 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
+            </div>
+        `;
+    }
+    
+    if (config.rol) {
+        hasFields = true;
+        container.innerHTML += `
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">¿Es Pastor o Miembro?</label>
+                <select id="${prefix}dynamic-rol" required class="w-full bg-slate-900 border border-slate-855 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
+                    <option value="" disabled selected>Selecciona tu rol</option>
+                    <option value="Miembro">Miembro</option>
+                    <option value="Pastor">Pastor</option>
+                </select>
+            </div>
+        `;
+    }
+    
+    if (config.alergias) {
+        hasFields = true;
+        container.innerHTML += `
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">¿Es alérgico?</label>
+                <select id="${prefix}dynamic-alergias" onchange="toggleAlergiaDetalle(this.value, '${prefix}')" required class="w-full bg-slate-900 border border-slate-855 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
+                    <option value="No">No</option>
+                    <option value="Sí">Sí</option>
+                </select>
+            </div>
+            <div id="${prefix}dynamic-alergias-detalle-container" class="space-y-1.5 hidden">
+                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Detalle de Alergias</label>
+                <input type="text" id="${prefix}dynamic-alergias-detalle" placeholder="Ej. Alérgico al maní, etc." class="w-full bg-slate-900 border border-slate-855 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
+            </div>
+        `;
+    }
+    
+    if (config.camiseta) {
+        hasFields = true;
+        container.innerHTML += `
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Talla Camiseta</label>
+                <select id="${prefix}dynamic-camiseta" required class="w-full bg-slate-900 border border-slate-855 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-mjAzul font-medium transition-all">
+                    <option value="" disabled selected>Selecciona talla</option>
+                    <option value="Ninguna">Ninguna / No Aplica</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XXXL">XXXL</option>
+                </select>
+            </div>
+        `;
+    }
+    
+    if (config.custom && Array.isArray(config.custom)) {
+        config.custom.forEach(field => {
+            hasFields = true;
+            const inputType = field.type === "number" ? "number" : "text";
+            container.innerHTML += `
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">${field.label}</label>
+                    <input type="${inputType}" id="${prefix}custom-${field.id}" required data-label="${field.label}" placeholder="Introduce ${field.label.toLowerCase()}" class="w-full bg-slate-900 border border-slate-855 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-mjAzul font-semibold transition-all">
+                </div>
+            `;
+        });
+    }
+    
+    if (hasFields) {
+        container.classList.remove("hidden");
+    } else {
+        container.classList.add("hidden");
+    }
+}
+
+function toggleAlergiaDetalle(value, prefix = "ins-") {
+    const detailContainer = document.getElementById(`${prefix}dynamic-alergias-detalle-container`);
+    const detailInput = document.getElementById(`${prefix}dynamic-alergias-detalle`);
+    if (detailContainer && detailInput) {
+        if (value === "Sí") {
+            detailContainer.classList.remove("hidden");
+            detailInput.required = true;
+        } else {
+            detailContainer.classList.add("hidden");
+            detailInput.required = false;
+            detailInput.value = "";
+        }
+    }
+}
+
 function abrirFormularioInscripcion(eventoId) {
     if (!usuarioIdentificado) {
         showToast("Primero debes identificarte en la parte superior.", "warning");
@@ -404,6 +561,9 @@ function abrirFormularioInscripcion(eventoId) {
         `;
         inputMonto.value = evt.precio;
     }
+
+    // Renderizar campos dinámicos
+    renderDynamicFormFields(evt.camposConfig, "ins-dynamic-fields-container", "ins-");
 
     // Abrir modal
     document.getElementById("modal-inscripcion").classList.remove("hidden");
@@ -495,6 +655,19 @@ document.getElementById("form-inscripcion-evento").addEventListener("submit", fu
     reader.onload = function(evtReader) {
         const base64Data = evtReader.target.result;
 
+        const edadInput = document.getElementById("ins-dynamic-edad");
+        const rolInput = document.getElementById("ins-dynamic-rol");
+        const alergiasInput = document.getElementById("ins-dynamic-alergias");
+        const alergiasDetalleInput = document.getElementById("ins-dynamic-alergias-detalle");
+        const camisetaInput = document.getElementById("ins-dynamic-camiseta");
+
+        let customData = {};
+        const customInputs = document.querySelectorAll("#ins-dynamic-fields-container [id^='ins-custom-']");
+        customInputs.forEach(input => {
+            const label = input.getAttribute("data-label");
+            customData[label] = input.value;
+        });
+
         const payload = {
             accion: "registrarInscripcion",
             idEvento: eventoSeleccionadoId,
@@ -507,7 +680,13 @@ document.getElementById("form-inscripcion-evento").addEventListener("submit", fu
             telefono: document.getElementById("ins-telefono").value.trim(),
             tipoPago: document.getElementById("ins-tipo-pago").value,
             montoAbonado: monto,
-            comprobanteBase64: base64Data
+            comprobanteBase64: base64Data,
+            edad: edadInput ? Number(edadInput.value) : "",
+            rol: rolInput ? rolInput.value : "",
+            alergias: alergiasInput ? alergiasInput.value : "",
+            alergiasDetalle: alergiasDetalleInput ? alergiasDetalleInput.value : "",
+            tallaCamiseta: camisetaInput ? camisetaInput.value : "",
+            camposPersonalizados: JSON.stringify(customData)
         };
 
         if (WEB_APP_URL.includes("https://script.google.com") && !dbOffline) {
@@ -564,7 +743,13 @@ function registrarInscripcionLocal(payload, btn) {
         montoAbonado: payload.montoAbonado,
         urlComprobante: "#", // Localmente no sube a Drive
         estadoFactura: "Pendiente",
-        fechaRegistro: new Date().toISOString()
+        fechaRegistro: new Date().toISOString(),
+        edad: payload.edad,
+        rol: payload.rol,
+        alergias: payload.alergias,
+        alergiasDetalle: payload.alergiasDetalle,
+        tallaCamiseta: payload.tallaCamiseta,
+        camposPersonalizados: payload.camposPersonalizados
     };
 
     local.inscripciones.push(nuevaIns);
@@ -960,6 +1145,15 @@ function openAddEventoModal() {
     document.getElementById("evento-fecha").value = "";
     document.getElementById("evento-lugar").value = "";
     document.getElementById("evento-precio").value = "";
+    
+    // Limpiar configuración de campos
+    document.getElementById("evt-cfg-edad").checked = false;
+    document.getElementById("evt-cfg-rol").checked = false;
+    document.getElementById("evt-cfg-alergias").checked = false;
+    document.getElementById("evt-cfg-camiseta").checked = false;
+    customFieldsConfigList = [];
+    renderCustomFieldsConfigUI();
+    
     document.getElementById("modal-evento-titulo").textContent = "Crear Nuevo Evento";
     document.getElementById("modal-evento").classList.remove("hidden");
 }
@@ -980,6 +1174,25 @@ function openEditEventoModal(id, nombre, fecha, lugar, precio) {
     document.getElementById("evento-fecha").value = dateVal;
     document.getElementById("evento-lugar").value = lugar;
     document.getElementById("evento-precio").value = precio;
+
+    // Buscar el evento completo para obtener su configuración de campos
+    const evt = eventosGlobales.find(e => e.id === id);
+    let config = {};
+    if (evt && evt.camposConfig) {
+        try {
+            config = typeof evt.camposConfig === "string" ? JSON.parse(evt.camposConfig) : evt.camposConfig;
+        } catch(e) {
+            console.error("Error al parsear config de campos en edición:", e);
+        }
+    }
+
+    document.getElementById("evt-cfg-edad").checked = !!config.edad;
+    document.getElementById("evt-cfg-rol").checked = !!config.rol;
+    document.getElementById("evt-cfg-alergias").checked = !!config.alergias;
+    document.getElementById("evt-cfg-camiseta").checked = !!config.camiseta;
+    customFieldsConfigList = config.custom || [];
+    renderCustomFieldsConfigUI();
+
     document.getElementById("modal-evento-titulo").textContent = "Editar Evento";
     document.getElementById("modal-evento").classList.remove("hidden");
 }
@@ -1012,7 +1225,14 @@ document.getElementById("form-evento").addEventListener("submit", function(e) {
         nombre,
         fecha,
         lugar,
-        precio
+        precio,
+        camposConfig: JSON.stringify({
+            edad: document.getElementById("evt-cfg-edad").checked,
+            rol: document.getElementById("evt-cfg-rol").checked,
+            alergias: document.getElementById("evt-cfg-alergias").checked,
+            camiseta: document.getElementById("evt-cfg-camiseta").checked,
+            custom: customFieldsConfigList
+        })
     };
 
     if (WEB_APP_URL.includes("https://script.google.com") && !dbOffline) {
@@ -1052,7 +1272,8 @@ function guardarEventoLocal(payload) {
         nombre: payload.nombre,
         fecha: payload.fecha,
         lugar: payload.lugar,
-        precio: payload.precio
+        precio: payload.precio,
+        camposConfig: payload.camposConfig
     };
 
     if (index === -1) {
@@ -1315,6 +1536,46 @@ function openEditInscripcionModal(id) {
     document.getElementById("admin-ins-estado").value = ins.estadoFactura;
     document.getElementById("admin-ins-evento").value = ins.idEvento;
 
+    // Renderizar campos dinámicos en el panel de administración
+    const evt = eventosGlobales.find(e => e.id === ins.idEvento);
+    const camposConfig = evt ? evt.camposConfig : "{}";
+    
+    renderDynamicFormFields(camposConfig, "admin-ins-dynamic-fields-container", "admin-ins-");
+    
+    // Rellenar campos estándar si existen
+    const edadInput = document.getElementById("admin-ins-dynamic-edad");
+    const rolInput = document.getElementById("admin-ins-dynamic-rol");
+    const alergiasInput = document.getElementById("admin-ins-dynamic-alergias");
+    const alergiasDetalleInput = document.getElementById("admin-ins-dynamic-alergias-detalle");
+    const camisetaInput = document.getElementById("admin-ins-dynamic-camiseta");
+    
+    if (edadInput) edadInput.value = ins.edad || "";
+    if (rolInput) rolInput.value = ins.rol || "";
+    if (alergiasInput) {
+        alergiasInput.value = ins.alergias || "No";
+        toggleAlergiaDetalle(alergiasInput.value, "admin-ins-");
+    }
+    if (alergiasDetalleInput) alergiasDetalleInput.value = ins.alergiasDetalle || "";
+    if (camisetaInput) camisetaInput.value = ins.tallaCamiseta || "";
+    
+    // Rellenar campos personalizados
+    let customData = {};
+    if (ins.camposPersonalizados) {
+        try {
+            customData = typeof ins.camposPersonalizados === "string" ? JSON.parse(ins.camposPersonalizados) : ins.camposPersonalizados;
+        } catch(e) {
+            console.error("Error al parsear campos personalizados de inscripción:", e);
+        }
+    }
+    
+    const customInputs = document.querySelectorAll("#admin-ins-dynamic-fields-container [id^='admin-ins-custom-']");
+    customInputs.forEach(input => {
+        const label = input.getAttribute("data-label");
+        if (customData && customData[label] !== undefined) {
+            input.value = customData[label];
+        }
+    });
+
     document.getElementById("modal-edit-inscripcion").classList.remove("hidden");
 }
 
@@ -1345,6 +1606,19 @@ document.getElementById("form-edit-inscripcion").addEventListener("submit", func
     cerrarEditInscripcionModal();
     showToast("Guardando cambios...", "warning");
 
+    const edadInput = document.getElementById("admin-ins-dynamic-edad");
+    const rolInput = document.getElementById("admin-ins-dynamic-rol");
+    const alergiasInput = document.getElementById("admin-ins-dynamic-alergias");
+    const alergiasDetalleInput = document.getElementById("admin-ins-dynamic-alergias-detalle");
+    const camisetaInput = document.getElementById("admin-ins-dynamic-camiseta");
+
+    let customData = {};
+    const customInputs = document.querySelectorAll("#admin-ins-dynamic-fields-container [id^='admin-ins-custom-']");
+    customInputs.forEach(input => {
+        const label = input.getAttribute("data-label");
+        customData[label] = input.value;
+    });
+
     const payload = {
         accion: "guardarInscripcionAdmin",
         usuario: adminUsuario,
@@ -1360,7 +1634,13 @@ document.getElementById("form-edit-inscripcion").addEventListener("submit", func
         tipoPago,
         montoAbonado: monto,
         estadoFactura,
-        idEvento
+        idEvento,
+        edad: edadInput ? Number(edadInput.value) : "",
+        rol: rolInput ? rolInput.value : "",
+        alergias: alergiasInput ? alergiasInput.value : "",
+        alergiasDetalle: alergiasDetalleInput ? alergiasDetalleInput.value : "",
+        tallaCamiseta: camisetaInput ? camisetaInput.value : "",
+        camposPersonalizados: JSON.stringify(customData)
     };
 
     if (WEB_APP_URL.includes("https://script.google.com") && !dbOffline) {
@@ -1405,6 +1685,13 @@ function guardarInscripcionLocal(payload) {
         local.inscripciones[index].montoAbonado = payload.montoAbonado;
         local.inscripciones[index].estadoFactura = payload.estadoFactura;
         local.inscripciones[index].idEvento = payload.idEvento;
+        
+        local.inscripciones[index].edad = payload.edad;
+        local.inscripciones[index].rol = payload.rol;
+        local.inscripciones[index].alergias = payload.alergias;
+        local.inscripciones[index].alergiasDetalle = payload.alergiasDetalle;
+        local.inscripciones[index].tallaCamiseta = payload.tallaCamiseta;
+        local.inscripciones[index].camposPersonalizados = payload.camposPersonalizados;
 
         guardarDatosLocales(null, local.inscripciones);
         inscripcionesGlobales = local.inscripciones;
