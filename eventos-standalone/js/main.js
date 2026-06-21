@@ -866,7 +866,7 @@ function renderGráficosAdmin(eventos, inscripciones) {
     }
 
     // B. Inscritos por Región (Provincias/Áreas)
-    const regionesList = ["IDP Bocas del Toro", "IDP Coclé", "IDP Chiriquí", "IDP Herrera", "IDP Los Santos", "IDP Veraguas"];
+    const regionesList = ["Región 1", "Región 2", "Región 3", "Región 4", "Región 5"];
     const regionCounts = regionesList.map(dist => {
         return inscripciones.filter(i => i.distrito === dist).length;
     });
