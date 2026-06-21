@@ -1,5 +1,5 @@
 // --- CONFIGURACIÓN GENERAL ---
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyptAL674sRJGij1jsDDd7MmaO4tnbP4ss3-b37JNNEZihXiG1QEtYTM0RqinP21z8n/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwYf7D018s7blBVSfAbqgVQ_qDpqpzSeZUwzKkvzlu16a30N37QR5kGWAQr501Mk1Zr/exec";
 const STATS_RESPALDO = { jovenes: 342, iglesias: 18, lideres: 24 };
 
 // ==========================================
